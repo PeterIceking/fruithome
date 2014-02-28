@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fruithome</title>
+	<title><%= @page_title || "FruitHome"%></title>
+	
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="global_top_bar">
+	<div>
+		
+	</div>
+</div>
+<!--%="<h1>@page_title</h1>" if @page_title %-->
 
 <%= yield %>
 

@@ -1,3 +1,18 @@
+#~ development:
+  #~ adapter: mysql
+  #~ database: ec_dev
+  #~ username:admin
+  #~ password:admin
+  #~ pool: 5
+  #~ timeout: 5000
+#~ test:
+  #~ adapter: mysql
+  #~ database: ec_test
+  #~ username:admin
+  #~ password:admin
+  #~ pool: 5
+  #~ timeout: 5000
+
 # SQLite version 3.x
 #   gem install sqlite3
 #
