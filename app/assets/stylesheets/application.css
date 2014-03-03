@@ -11,3 +11,42 @@
  *= require_self
  *= require_tree .
  */
+#global_top_bar {
+	width:100%;	
+}
+.global_top_nav {
+	width:1200px;
+	margin:0 auto;
+	height:35px;
+	background:#F5F5F5
+}
+ul {
+	list-style:none;
+}
+.top_nav_left, ul li {
+	display:inline;
+	float:left;
+}
+.top_nav_left ul, .top_nav_right ul {
+	float:left;
+}
+.top_nav_right {
+	float:right;
+}
+.global_top_nav ul li {
+	height:35px;
+	line-height:35px;
+	margin:auto 20px;
+}
+#footer {
+	width:100%;
+	margin:10px auto;
+	border-top:10px solid #E5E5E5;
+	position:relative;
+}
+.footer_services, .footer_links, .footer_copyright, .footer_authentication {
+	width:1200px;
+	margin:5px auto;
+	height:auto;
+	text-align:center;
+}

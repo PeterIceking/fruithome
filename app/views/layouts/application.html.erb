@@ -9,13 +9,80 @@
 </head>
 <body>
 <div id="global_top_bar">
-	<div>
+	<div id="top_nav" class="global_top_nav">
+		<ul class="top_nav_left">
+			<li><span><a href="#">亲，请登录</a></span></li>
+			<li><span><a href="#">免费注册</a></span></li>
+		</ul>
 		
+		<ul class="top_nav_right">
+			<li class="btn-group">
+				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">个人中心</a><i class="icon-chevron-down"></i></span>
+				<ul class="dropdown-menu">
+					<li><a href="#"><i class="icon-star"></i> 我的订单</a></li>
+					<li><a href="#"><i class="icon-tag"></i> 我的收藏</a></li>
+					<li><a href="#"><i class="icon-tag"></i> 我的优惠</a></li>
+					<li class="divider"></li>
+					<li><a href="#"><i class="icon-tint"></i>退出</a></li>
+				</ul>
+			</li>
+			<li class="btn-group">
+				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">我的购物车</a><i class="icon-chevron-down"></i></span>
+				<ul class="dropdown-menu">
+					<li><a href="#"><i class="icon-star"></i> 订单</a></li>
+				</ul>
+			</li>
+			<li class="">
+				<span class=""><a href="#">商品分类</a></span>
+			</li>
+			<li class="">
+				<span class=""><a href="#">客户服务</a></span>
+			</li>
+			<li class="btn-group">
+				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">网站导航</a><i class="icon-chevron-down"></i></span>
+				<ul class="dropdown-menu">
+					<li><a href="#"><i class="icon-star"></i> FruitHome</a></li>
+				</ul>
+			</li>
+		</ul>
 	</div>
+	
 </div>
-<!--%="<h1>@page_title</h1>" if @page_title %-->
+<div id="content" class="main_content">
+	<div></div>
+</div>
+
+<!--% if @page_title %-->
+	<!--h1><%= @page_title %></h1-->
+<!--% end %-->
 
 <%= yield %>
 
+<div id="footer">
+	<!--div class="footer_services">
+		<strong>各种服务</strong>
+	</div-->
+	<div class="footer_links">
+		<p>
+			<%= link_to "关于FruitHome", "about" %>
+			<strong>|</strong>
+			<%= link_to "我们的团队", "#" %>
+			<strong>|</strong>
+			<%= link_to "联系我们", "#" %>
+			<strong>|</strong>
+			<%= link_to "人才招聘", "#" %>
+			<strong>|</strong>
+			<%= link_to "友情链接", "#" %>
+			<strong>|</strong>
+			<%= link_to "广告服务", "#" %>
+		</p>
+	</div>
+	<div class="footer_copyright">
+		<p>Copyright© FruitHome 2014-2014， Not All Rights Reserved</p>
+		</div>
+	<div class="footer_authentication">
+		<%= link_to image_tag("authentication.png", alt: "尚未取得的授权", title: "尚未取得的授权") %>
+	</div>
+</div>
 </body>
 </html>
