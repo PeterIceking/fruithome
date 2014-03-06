@@ -1,0 +1,22 @@
+<h2>用户注册</h2>
+<%= form_for :user do |f| %>
+	<fieldset>
+		<legend>输入您的注册信息</legend>
+		<!--% :user.errors.full_messages.each do |msg| %-->
+			<!--p><!--%= msg %--></p-->
+		<!--% end %-->
+		<label for="username">用户名</label>
+		<%= f.text_field :username %>
+		<br />
+		<label for="email">E-mail</label>
+		<%= f.text_field :email %>
+		<br />
+		<label for="password">登录密码</label>
+		<%= f.password_field :password %>
+		<br />
+		<%= submit_tag "点击注册", :class => "submit" %>
+	</fieldset>
+<% end %>
+<% if ENV["RAILS_ENV"] == "development" %>
+	<%= debug(params) %>
+<% end %>
