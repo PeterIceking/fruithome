@@ -1,7 +1,6 @@
 Fruithome::Application.routes.draw do
-  root 'welcome#index'
-  get "welcome/index"
-  get "welcome" => "welcome#index"
+  root 'index#index'
+  get "index" => "index#index"
 	get "about" => "about#index"
   
   

@@ -2,10 +2,10 @@
 <html>
 <head>
 	<title><%= @page_title || "FruitHome"%></title>
-	
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<!--% if @page_title %--><!--h1><%= @page_title %></h1--><!--% end %-->
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 <div id="global_top_bar">
@@ -51,10 +51,6 @@
 <div id="content" class="main_content">
 	<div></div>
 </div>
-
-<!--% if @page_title %-->
-	<!--h1><%= @page_title %></h1-->
-<!--% end %-->
 
 <%= yield %>
 
