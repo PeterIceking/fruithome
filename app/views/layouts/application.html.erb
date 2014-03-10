@@ -11,8 +11,12 @@
 <div id="global_top_bar">
 	<div id="top_nav" class="global_top_nav">
 		<ul class="top_nav_left">
-			<li><span><a href="#">亲，请登录</a></span></li>
-			<li><span><a href="#">免费注册</a></span></li>
+			<% if flash[:notice] %>
+				<li><span><a href="#"><%= flash[:notice] %></a></span></li>
+			<% else %>
+				<li><span><a href="#">亲，请登录</a></span></li>
+				<li><span><%= link_to "免费注册", "register" %></span></li>
+			<% end %>
 		</ul>
 		
 		<ul class="top_nav_right">
@@ -53,6 +57,12 @@
 </div>
 
 <%= yield %>
+
+<% if ENV["RAILS_ENV"] == "development" %>
+<div class="alert">
+	<%= debug(params) %>
+</div>
+<% end %>
 
 <div id="footer">
 	<!--div class="footer_services">

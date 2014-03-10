@@ -1,4 +1,8 @@
 <h1>Index#index</h1>
 <p>Find me in app/views/index/index.html.erb</p>
-<h2><% text = "欢迎来到水果之家" %></h2>
-<%= text %>
+<h2>欢迎来到水果之家</h2>
+<% if flash[:notice] %>
+	<script>
+		window.alert("恭喜您，注册成功！");
+	</script>
+<% end %>

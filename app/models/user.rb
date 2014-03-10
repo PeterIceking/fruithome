@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	PASSWORD_MAX_LENGTH = 20
 	PASSWORD_RANGE = PASSWORD_MIN_LENGTH..PASSWORD_MAX_LENGTH
 	EMAIL_MAX_LENGTH = 30
+	
 	validates_uniqueness_of :username, :email
 	validates_presence_of :username, :email, :password
 	validates_length_of :username, :within => USERNAME_RANGE
