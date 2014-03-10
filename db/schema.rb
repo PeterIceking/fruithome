@@ -11,27 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306161138) do
+ActiveRecord::Schema.define(version: 20140310052814) do
 
-# Could not dump table "_fruits_old_20140301" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-# Could not dump table "_fruits_old_20140301_1" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "_fruits_type_old_20140302", force: true do |t|
-    t.text    "type_name",        null: false
-    t.integer "father_type_id"
-    t.text    "type_description"
+  create_table "fruit_types", force: true do |t|
+    t.string   "type_name"
+    t.string   "type_description"
+    t.integer  "super_tpye_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-# Could not dump table "fruits" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "fruits_type", force: true do |t|
-    t.text    "type_name",        null: false
-    t.integer "super_type_id"
-    t.text    "type_description"
+  create_table "fruits", force: true do |t|
+    t.string   "fruit_name"
+    t.string   "origin_place"
+    t.string   "description"
+    t.integer  "fruit_type"
+    t.float    "price_present"
+    t.float    "price_hirtory"
+    t.float    "price_other"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "orders", force: true do |t|

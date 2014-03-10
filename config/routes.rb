@@ -1,7 +1,17 @@
+# -*- encoding: utf-8 -*-
 Fruithome::Application.routes.draw do
   root 'index#index'
   get "index" => "index#index"
 	get "about" => "about#index"
+	post "register" => "user#register"
+	get "register" => "user#register"
+  get "admin/fruit_type/new"
+  get "admin/fruit_type/creat"
+  get "admin/fruit_type/edit"
+  get "admin/fruit_type/update"
+  get "admin/fruit_type/destroy"
+  get "admin/fruit_type/show"
+  get "admin/fruit_type/index"
   
   
   # The priority is based upon order of creation: first created -> highest priority.
