@@ -1,2 +1,12 @@
-<h1>Admin::FruitType#creat</h1>
-<p>Find me in app/views/admin/fruit_type/creat.html.erb</p>
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% end %>
+
+<label for="type_name">类别名称</label>
+<%= text_field "fruit_type", "type_name" %>
+
+<label for="type_descroption">类别描述</label>
+<%= text_field "fruit_type", "type_description" %>
+
+<label for="super_type">父类别Id</label>
+<%= text_field "fruit_type", "super_type_id" %>

@@ -1,2 +1,14 @@
-<h1>Admin::FruitType#show</h1>
-<p>Find me in app/views/admin/fruit_type/show.html.erb</p>
+<table>
+	<tr>
+		<td>Id</td>
+		<td>类别名称</td>
+		<td>类别描述</td>
+		<td>父类别Id</td>
+	</tr>
+	<tr>
+		<td><%= @fruit_type.id %></td>
+		<td><%= @fruit_type.type_name %></td>
+		<td><%= @fruit_type.type_description %></td>
+		<td><%= @fruit_type.super_type_id %></td>
+	</tr>
+</table>

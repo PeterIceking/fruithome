@@ -1,2 +1,7 @@
-<h1>Admin::FruitType#edit</h1>
-<p>Find me in app/views/admin/fruit_type/edit.html.erb</p>
+<%= form_tag :action => "update", :id => @fruit_type do %>
+	<%= render :partial => "form" %>
+	<%= submit_tag "保存" %>
+<% end %>
+
+<%= link_to "查看", :action => "show", :id=> @fruit_type %>
+<%= link_to "返回", :action => "index" %>
