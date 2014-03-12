@@ -1,0 +1,19 @@
+<table>
+	<tr>
+		<td>Id</td>
+		<td>用户Id</td>
+		<td>水果Id</td>
+		<td>水果数量</td>
+		<td>订单状态</td>
+		<td>订单日期</td>
+	</tr>
+	<tr>
+		<td><%= @order.id %></td>
+		<td><%= @order.user_id %></td>
+		<td><%= @order.fruit_id %></td>
+		<td><%= @order.fruit_amount %></td>
+		<td><%= @order.status %></td>
+		<td><%= @order.order_date %></td>
+	</tr>
+</table>
+<%= link_to "返回", :action => "index" %>

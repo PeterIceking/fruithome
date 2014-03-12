@@ -4,12 +4,12 @@
 <table>
 	<tr>
 		<td>Id</td>
-		<td>类别名称</td>
-		<td>类别描述</td>
-		<td>父类别Id</td>
+		<td>水果名称</td>
+		<td>描述</td>
+		<td>类别</td>
 		<td>编辑</td>
 		<td>删除</td>
 	</tr>
-	<%= render :partial=> "fruit_type", :collection => @fruit_types %>
+	<%= render :partial=> "fruit", :collection => @fruits %>
 </table>
 <%= link_to "新增", :action => "new" %>

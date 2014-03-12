@@ -1,0 +1,18 @@
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% end %>
+
+<label for="user_id">用户Id</label>
+<%= text_field "order", "user_id" %>
+
+<label for="fruit_id">水果Id</label>
+<%= text_field "order", "fruit_id" %>
+
+<label for="fruit_amount">水果数量</label>
+<%= text_field "order", "fruit_amount" %>
+
+<label for="status">订单状态</label>
+<%= text_field "order", "status" %>
+
+<label for="order_date">订单日期</label>
+<%= text_field "order", "order_date" %>

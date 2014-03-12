@@ -7,7 +7,6 @@ class UserController < ApplicationController
 	
 	def register
 		@page_title = "欢迎注册"
-		@user = User.new
 		if request.post? and params[:user]
 			@user = User.new(user_params)
 			if @user.save

@@ -1,0 +1,15 @@
+<table>
+	<tr>
+		<td>Id</td>
+		<td>水果名称</td>
+		<td>描述</td>
+		<td>类别</td>
+	</tr>
+	<tr>
+		<td><%= @fruit.id %></td>
+		<td><%= @fruit.fruit_name %></td>
+		<td><%= @fruit.description %></td>
+		<td><%= @fruit.fruit_type_id %></td>
+	</tr>
+</table>
+<%= link_to "返回", :action => "index" %>

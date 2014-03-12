@@ -11,7 +11,7 @@ include ApplicationHelper
 			@fruit_type = FruitType.new(fruit_type_params)
 			if @fruit_type.save
 				flash[:notice] = fruit_type_params[:type_name].to_s #"添加成功"
-				redirect_to :action => "index"
+				redirect_to :action => "show", :id => @fruit_type.id
 			else
 				flash[:alert] = errors_for(@fruit_type, "抱歉，请检查输入信息：").html_safe
 				redirect_to :action => "new"
@@ -29,7 +29,7 @@ include ApplicationHelper
 			@fruit_type = FruitType.find(params[:id])
 			if @fruit_type.update_attributes(fruit_type_params)
 				flash[:notice] = fruit_type_params[:type_name].to_s #"更新成功"
-				redirect_to :action => "index"
+				redirect_to :action => "show", :id => @fruit_type.id
 			else
 				flash[:alert] = errors_for(@fruit_type, "抱歉，请检查输入信息：").html_safe
 				render :action => "edit"
@@ -59,6 +59,8 @@ include ApplicationHelper
 	
 	private
 	def fruit_type_params
-		params.require(:fruit_type).permit(:type_name,:type_description,:super_type_id)
+		params.require(:fruit_type).permit( :type_name, 
+																				:type_description, 
+																				:super_type_id)
 	end
 end

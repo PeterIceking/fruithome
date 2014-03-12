@@ -4,7 +4,7 @@ class CreateFruits < ActiveRecord::Migration
 			t.string		:fruit_name,
 									:origin_place,
 									:description
-			t.integer 	:fruit_type
+			t.integer 	:fruit_type_id
 			t.float			:price_present,
 									:price_hirtory,
 									:price_other
