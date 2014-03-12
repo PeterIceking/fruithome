@@ -5,6 +5,7 @@
 	<!--% if @page_title %--><!--h1><%= @page_title %></h1--><!--% end %-->
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<!--%= javascript_include_tag "bootstrap-dropdown", "data-turbolinks-track" => true %-->
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -15,7 +16,7 @@
 				<li><span><a href="#"><%= flash[:notice] %></a></span></li>
 			<% else %>
 				<li><span><a href="#">亲，请登录</a></span></li>
-				<li><span><%= link_to "免费注册", "register" %></span></li>
+				<li><span><%= link_to "免费注册", register_path %></span></li>
 			<% end %>
 		</ul>
 		
@@ -50,10 +51,33 @@
 			</li>
 		</ul>
 	</div>
-	
 </div>
-<div id="content" class="main_content">
-	<div></div>
+
+<div id="site_header">
+	<div class="header_wrapper">
+		<div class="hd_logo fl">
+			<a href="http://localhost:3000/"><%= image_tag("fruit_home_logo.png") %></a>
+		</div>
+		<div class="hd_search fl">
+			<div class="hd_search_form">
+				<input type="text" placeholder="请输入关键词" id="search_word"></input>
+				<input type="submit" value="搜索"></input>
+			</div>
+			<p id="hot_keyword" class="hd_hot_keyword_search">
+				<span>果友都在找：</span>
+				<a href="#">苹果</a>
+				<a href="#">梨子</a>
+				<a href="#">送礼</a>
+				<a href="#">礼包</a>
+				<a href="#">春季</a>
+				<a href="#">特惠</a>
+				<a href="#">学生</a>
+			</p>
+		</div>
+		<div class="hd_banner fl">
+			<a href="http://localhost:3000/"><%= image_tag("fruit_home_logo.png") %></a>
+		</div>
+	</div>
 </div>
 
 <%= yield %>
@@ -70,7 +94,7 @@
 	</div-->
 	<div class="footer_links">
 		<p>
-			<%= link_to "关于FruitHome", "about" %>
+			<%= link_to "关于FruitHome", about_path %>
 			<strong>|</strong>
 			<%= link_to "我们的团队", "#" %>
 			<strong>|</strong>
@@ -87,7 +111,7 @@
 		<p>Copyright© FruitHome 2014-2014， Not All Rights Reserved</p>
 		</div>
 	<div class="footer_authentication">
-		<%= link_to image_tag("authentication.png", alt: "尚未取得的授权", title: "尚未取得的授权") %>
+		<%= image_tag("authentication.png", style: "cursor:pointer", alt: "尚未取得的授权", title: "尚未取得的授权") %>
 	</div>
 </div>
 </body>

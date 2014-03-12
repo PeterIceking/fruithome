@@ -11,7 +11,14 @@
  *= require_self
  *= require_tree .
  */
-#global_top_bar {
+ .fl {
+	float:left;
+ }
+ .fr {
+	float:right;
+ }
+#global_top_bar, #site_header {
+	position:relative;
 	width:100%;	
 }
 .global_top_nav {
@@ -37,6 +44,32 @@ ul {
 	height:35px;
 	line-height:35px;
 	margin:auto 20px;
+}
+.header_wrapper {
+	width:1200px;
+	margin:0 auto;
+}
+.hd_logo {
+	width:200px;
+	clear:both;
+}
+ .hd_banner {
+	width:300px;
+}
+.hd_search {
+	width:600px;
+	padding:5px 0;
+}
+.hd_search_form {
+	height:40px;
+}
+.hd_hot_keyword_search {
+	height:30px;
+	line-height:30px;
+}
+#search_word {
+	height:25px;
+	width:350px;
 }
 #footer {
 	width:100%;

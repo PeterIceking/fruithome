@@ -5,6 +5,8 @@ Fruithome::Application.routes.draw do
 	get "about" => "about#index"
 	post "register" => "user#register"
 	get "register" => "user#register"
+	
+	# admin,fruit_type
   get "admin/fruit_type/new" => "admin/fruit_type#new"
   # get "admin/fruit_type/create" => "admin/fruit_type#create"
   post "admin/fruit_type/create" => "admin/fruit_type#create"
@@ -13,6 +15,30 @@ Fruithome::Application.routes.draw do
   post "admin/fruit_type/destroy"
   get "admin/fruit_type/show"
   get "admin/fruit_type/index"
+	
+	# admin,fruit
+  get "admin/fruit/new" => "admin/fruit#new"
+  # get "admin/fruit/create" => "admin/fruit#create"
+  post "admin/fruit/create" => "admin/fruit#create"
+  get "admin/fruit/edit"
+  post "admin/fruit/update"
+  post "admin/fruit/destroy"
+  get "admin/fruit/show"
+  get "admin/fruit/index"
+	
+	# admin,order
+	get "admin/order/new" => "admin/order#new"
+  post "admin/order/create" => "admin/order#create"
+  get "admin/order/edit"
+  post "admin/order/update"
+  post "admin/order/destroy"
+  get "admin/order/show"
+  get "admin/order/index"
+	# namespace :admin do
+		# # Directs /admin/products/* to Admin::ProductsController
+		# # (app/controllers/admin/products_controller.rb)
+		# resources :order
+	# end
   
   
   # The priority is based upon order of creation: first created -> highest priority.
