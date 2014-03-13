@@ -48,6 +48,7 @@ ul {
 .header_wrapper {
 	width:1200px;
 	margin:0 auto;
+	height: 100px;
 }
 .hd_logo {
 	width:200px;
@@ -55,6 +56,7 @@ ul {
 }
  .hd_banner {
 	width:300px;
+	clear:right;
 }
 .hd_search {
 	width:600px;
@@ -76,6 +78,7 @@ ul {
 	margin:10px auto;
 	border-top:10px solid #E5E5E5;
 	position:relative;
+	clear: both;
 }
 .footer_services, .footer_links, .footer_copyright, .footer_authentication {
 	width:1200px;

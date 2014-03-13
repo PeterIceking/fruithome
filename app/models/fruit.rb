@@ -9,8 +9,8 @@ class Fruit < ActiveRecord::Base
 	
 	validates :fruit_name,	:uniqueness => true,
 													:presence => true,
-													:length => { :within => TruitName_RANGE }
+													:length => { :within => TruitName_RANGE } #1-20
 	validates :fruit_type_id,
 													:presence => true
-	validates :description,	:length => { :within => Description_RANGE}
+	validates :description,	:length => { :within => Description_RANGE} #12-200
 end

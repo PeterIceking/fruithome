@@ -1,3 +1,66 @@
-// Place all the styles related to the welcome controller here.
+// Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$btn_myown_word_color:	#FFFFFF;
+$btn_myown_color:	#40AF39;
+$btn_myown_bover_color:	#309A28;
+#hd_nav {
+	position:	relative;
+	width:	100%;
+}
+.fruit_type {
+	width:	1200px;
+	background:	#40AF39;
+	border-radius: 10px;
+	margin:	5px auto;
+	height:	35px;
+}
+.fruit_type_nav {
+	width:	600px;
+	padding: 0 10px;
+}
+.btn-type-nav {
+  color: $btn_myown_word_color;
+  background-color: $btn_myown_color;
+  border-color: $btn_myown_color;
+}
+.btn-type-nav:hover,
+.btn-type-nav:focus,
+.btn-type-nav:active,
+.btn-type-nav.active,
+.open .dropdown-toggle.btn-type-nav {
+  color: $btn_myown_word_color;
+  background-color: $btn_myown_bover_color;
+  border-color: $btn_myown_bover_color;
+}
+.btn-type-nav:active,
+.btn-type-nav.active,
+.open .dropdown-toggle.btn-type-nav {
+  background-image: none;
+}
+.btn-type-nav.disabled,
+.btn-type-nav[disabled],
+fieldset[disabled] .btn-type-nav,
+.btn-type-nav.disabled:hover,
+.btn-type-nav[disabled]:hover,
+fieldset[disabled] .btn-type-nav:hover,
+.btn-type-nav.disabled:focus,
+.btn-type-nav[disabled]:focus,
+fieldset[disabled] .btn-type-nav:focus,
+.btn-type-nav.disabled:active,
+.btn-type-nav[disabled]:active,
+fieldset[disabled] .btn-type-nav:active,
+.btn-type-nav.disabled.active,
+.btn-type-nav[disabled].active,
+fieldset[disabled] .btn-type-nav.active {
+  background-color: $btn_myown_color;
+  border-color: $btn_myown_color;
+}
+.btn-type-nav .badge {
+  color: $btn_myown_word_color;
+  background-color: $btn_myown_color;
+}
+.btn-group.open .btn-type-nav.dropdown-toggle {
+  background-color: $btn_myown_color;
+}

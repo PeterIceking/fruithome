@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="global_top_bar">
-	<div id="top_nav" class="global_top_nav">
+	<div id="global_top_nav" class="global_top_nav">
 		<ul class="top_nav_left">
 			<% if flash[:notice] %>
 				<li><span><a href="#"><%= flash[:notice] %></a></span></li>
@@ -22,19 +22,21 @@
 		
 		<ul class="top_nav_right">
 			<li class="btn-group">
+				<div>
 				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">个人中心</a><i class="icon-chevron-down"></i></span>
 				<ul class="dropdown-menu">
 					<li><a href="#"><i class="icon-star"></i> 我的订单</a></li>
-					<li><a href="#"><i class="icon-tag"></i> 我的收藏</a></li>
 					<li><a href="#"><i class="icon-tag"></i> 我的优惠</a></li>
 					<li class="divider"></li>
 					<li><a href="#"><i class="icon-tint"></i>退出</a></li>
 				</ul>
+				</div>
 			</li>
 			<li class="btn-group">
-				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">我的购物车</a><i class="icon-chevron-down"></i></span>
+				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">我的收藏夹</a><i class="icon-chevron-down"></i></span>
 				<ul class="dropdown-menu">
-					<li><a href="#"><i class="icon-star"></i> 订单</a></li>
+					<li><a href="#"><i class="icon-star"></i>水果</a></li>
+					<li><a href="#"><i class="icon-star"></i>类别</a></li>
 				</ul>
 			</li>
 			<li class="">
@@ -75,15 +77,26 @@
 			</p>
 		</div>
 		<div class="hd_banner fl">
-			<a href="http://localhost:3000/"><%= image_tag("fruit_home_logo.png") %></a>
+			<div class="cart">
+				<div class="btn-group">
+					<button type="button" class="btn btn-type-nav">
+					<span class="icon32 icon-orange icon-cart"></span>
+					<span>我的购物车（3件）</span>
+					</button>
+				</div>
+		</div>
 		</div>
 	</div>
 </div>
 
-<%= yield %>
+<!--div style="clear:both"-->
+<div style="position:relative">
+	<%= yield %>
+</div>
+
 
 <% if ENV["RAILS_ENV"] == "development" %>
-<div class="alert">
+<div class="alert" style="clear:both; ">
 	<%= debug(params) %>
 </div>
 <% end %>
