@@ -73,12 +73,29 @@ ul {
 	height:25px;
 	width:350px;
 }
+#hd_nav {
+	position:	relative;
+	width:	100%;
+}
+.fruit_type {
+	width:	1200px;
+	background:	#40AF39;
+	border-radius: 10px;
+	margin:	5px auto;
+	height:	35px;
+}
+.fruit_type_nav {
+	width:	600px;
+	padding: 0 10px;
+}
 #footer {
 	width:100%;
 	margin:10px auto;
-	border-top:10px solid #E5E5E5;
 	position:relative;
 	clear: both;
+}
+.footer_links {
+	border-top:10px solid #E5E5E5;
 }
 .footer_services, .footer_links, .footer_copyright, .footer_authentication {
 	width:1200px;

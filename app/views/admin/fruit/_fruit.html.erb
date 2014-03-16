@@ -3,6 +3,7 @@
 	<td><%= link_to fruit.fruit_name, :action=> "show", :id => fruit %></td>
 	<td><%= fruit.description %></td>
 	<td><%= fruit.fruit_type_id %></td>
+	<td><%= fruit.test_col %></td>
 	<td><%= link_to "编辑", :action=> "edit", :id => fruit %></td>
 	<td><%= button_to "删除", { :action=> "destroy", :id=> fruit },
 															:confirm => "是否要删除水果种类：#{fruit.fruit_name}" %></td>

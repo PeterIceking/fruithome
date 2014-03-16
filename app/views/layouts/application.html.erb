@@ -89,6 +89,29 @@
 	</div>
 </div>
 
+<div id="hd_nav">
+	<div class="fruit_type">
+		<div class="fruit_type_nav fl">
+			<div class="btn-group">
+				<button type="button" class="btn btn-type-nav">漂亮的首页</button>
+			</div>
+			<% FruitType.where( :super_id => nil ).each do |suptype| %>
+				<div class="btn-group">
+					<button type="button" class="btn btn-type-nav dropdown-toggle" data-toggle="dropdown">
+						<%= suptype.type_name %>
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<% FruitType.where( :super_id => suptype.id ).each do |subtype| %>
+							<li><a href="#"><%= subtype.type_name %></a></li>
+						<% end %>
+					</ul>
+				</div>	
+			<% end %>
+		</div>
+	</div>
+</div>
+
 <!--div style="clear:both"-->
 <div style="position:relative">
 	<%= yield %>
@@ -102,9 +125,9 @@
 <% end %>
 
 <div id="footer">
-	<!--div class="footer_services">
-		<strong>各种服务</strong>
-	</div-->
+	<div class="footer_services">
+		<strong>各种服务,运输，支付，信息等等</strong>
+	</div>
 	<div class="footer_links">
 		<p>
 			<%= link_to "关于FruitHome", about_path %>

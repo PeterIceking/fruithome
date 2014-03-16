@@ -1,0 +1,19 @@
+<div style="width:100%; position:relative; clear:both;">
+	<div style="width:1200px; margin:2px auto; height:auto">
+		<div>
+			<%= link_to "首页", "/" %>
+			<span>></span>
+			<span><%= @search_word %></span>
+		</div>
+		<%= render :partial=> "shared/fruit_search", :collection => @fruits_search %>
+	</div>
+</div>
+
+
+
+
+<% if flash[:notice] %>
+	<script>
+		window.alert("恭喜您，注册成功！");
+	</script>
+<% end %>

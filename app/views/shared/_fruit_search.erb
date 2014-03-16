@@ -1,0 +1,17 @@
+<div style="width:300px; height:400px;" class="fl">
+	<div style="padding:15px;">
+		
+			<%= image_tag "fruit_images/#{fruit_search.id}_270_270_1.jpg", :width => "250px", :alt =>"#{fruit_search.fruit_name}" %>
+	</div>
+	<div style=" text-align:center; ">
+		<a href="/show">
+			<span style="display:block;">
+				<%= fruit_search.fruit_name %>
+			</span>
+			<span style="display:block;"><%= fruit_search.brief_introduction %></span>
+		</a>
+		<!--span style="display:block;"><%= fruit_search.origin_place %></span-->
+		<span style="display:block;"><%= fruit_search.price_present %></span>
+		<span style="display:block;"><%= fruit_search.unit %></span>
+	</div>
+</div>
