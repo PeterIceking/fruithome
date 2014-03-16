@@ -1,0 +1,147 @@
+﻿一些语句：
+Order.where(id:[1,2]).load
+Fruit.where( :fruit_type_id => 3)
+Fruit.select(:id, :fruit_name, :description).limit(2).where("fruit_name like ?", "%瓜%")
+Fruit.find(:all, :joins =>:fruit_type, :select => "fruit_types.name")
+select:	取出的字段
+offset: 跳过的数据条目数
+limit: 取出的最大数量
+order: 排序
+
+where: conditon可以是string，array，hash
+UserStory
+Todo
+db：购物车，订单和订单明细表
+显示所有商品
+根据类别显示商品
+cookie，session用户名等信息
+各种id都是简单的数字，需要优化
+routes需要优化和简化
+代码重复和冗余
+
+
+Todo
+水果种类管理
+	管理员账户登录后台管理系统，
+	打开水果种类管理界面
+	进行CRUD，并提交更改
+
+Done
+会员用户注册
+	打开网站主页
+	点击注册按钮，进入注册页面
+	输入注册信息后点击确定按钮
+	注册成功返回网站主页
+Done
+水果种类FruitTypes的CRUD
+水果Fruit的CRUD
+订单Orders的CRUD
+
+Todo
+优化数据库表设计：字段，主键，外键
+主键和外键姑且没有设置
+	
+Todo
+管理界面：显示优化
+用户界面：界面显示并优化
+
+Todo
+优化注册错误提示
+	优化注册失败信息显示格式
+	一些信息：
+		ApplicationHelper#errors_for
+		<div class="errors">
+			<% user.errors.full_messages.each do |msg| %>
+				<p><%= msg %></p>
+			<% end %>
+			<%= f.label :name %>
+		</div>
+	
+Todo
+会员用户peter登陆系统
+	peter打开网站主页
+	点击登陆按钮，进入登陆页面
+	输入登陆信息，点击确定
+	peter登陆系统后，页面返回到网站主页
+	
+
+	
+一些记录：
+
+DRY：Don't Repeat Yourself
+
+ACID：原子性，一致性，独立性，持久性
+
+TDD流程:
+	1）写一个测试程序，描述某个功能。
+	2）确保测试出错（因为还没动手开发这个功能，此次应该出错）。
+	3）写一段最短的程序让测试通过。
+	4）重构代码用最简单（简单如何理解？）的设计实现这个功能。
+Block：block是快速创建一次性、无命名（匿名）函数的一种方法，只要我们需要，它的局部变量就会继续保存着。
+
+测试
+单元测试：model
+功能测试：controller
+集成测试：controllers，routes，views
+
+元编程：编写能编写代码的代码
+
+
+
+# FruitType :type_name,	:type_description,	:super_type_id
+	# 产地1
+		# 中国大陆5
+			# 新疆 海南 上海 北京 浙江 重庆 湖南 湖北 江苏 广东 福建
+		# 台湾6
+		# 美国7
+		# 新西兰8
+		# 泰国9
+		# 葡萄牙西班牙10
+	# 人群2
+		# 儿童11
+		# 孕妇12
+		# 老年人13
+		# 瘦身族14
+		# 程序猿15
+	# 场合3
+		# 生日Party16
+		# 婚庆典礼17
+		# 宴席聚会18
+		# 办公会议19
+		# 探视病患20
+		# 答谢祝福21
+	# 礼品区4
+		# 水果礼盒22
+			# 诚心诚意礼盒 甜美丽人礼盒 美丽心情礼盒 关怀备至礼盒
+		# 水果礼篮23
+		# 水果礼券24
+		
+		
+			<span>所有分类</span>
+		<ul class="">
+			<li class="btn-group">
+				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">礼品</a><i class="icon-chevron-down"></i></span>
+				<ul class="dropdown-menu">
+					<li><a href="#"><i class="icon-star"></i>大礼品</a></li>
+					<li class="divider"></li>
+					<li><a href="#"><i class="icon-tint"></i>小礼品</a></li>
+				</ul>
+			</li>
+			<li class="btn-group">
+				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">季节</a><i class="icon-chevron-down"></i></span>
+				<ul class="dropdown-menu">
+					<li><a href="#"><i class="icon-star"></i>春季</a></li>
+					<li class="divider"></li>
+					<li><a href="#"><i class="icon-tint"></i>夏季</a></li>
+				</ul>
+			</li>
+			<li class="btn-group">
+				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">国家和地区</a><i class="icon-chevron-down"></i></span>
+				<ul class="dropdown-menu">
+					<li><a href="#"><i class="icon-star"></i>内地</a></li>
+					<li class="divider"></li>
+					<li><a href="#"><i class="icon-tint"></i>台湾</a></li>
+				</ul>
+			</li>
+		</ul>
+
