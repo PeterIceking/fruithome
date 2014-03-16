@@ -3,12 +3,21 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
 			t.string 	:username,
 								:username_real, 
-								:email, 
+								:sex,
+								:birthdate,
+								:e_mail, 
 								:password, 
+								:question,
+								:answer,
+								:phone_number,
+								:shopping_exp,
+								:member_type,
 								:mail_address, 
-								:livingCity, 
+								:city, 
 								:address,
-								:birthdate
+								:post_code,
+								:advance_payment,
+								:latest_log_date	#上次登录时间
       t.timestamps
     end
   end
