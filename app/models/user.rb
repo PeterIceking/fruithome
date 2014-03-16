@@ -1,5 +1,10 @@
 # -*- encoding: utf-8 -*-
 class User < ActiveRecord::Base
+
+	has_many :mail_adresses
+	has_many :accounts
+	has_many :orders
+	has_many :comments
 	
 	USERNAME_MIN_LENGTH = 2
 	USERNAME_MAX_LENGTH = 20

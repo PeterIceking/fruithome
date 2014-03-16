@@ -1,10 +1,14 @@
 # -*- encoding: utf-8 -*-
 Fruithome::Application.routes.draw do
-  root 'index#index'
-  get "index" => "index#index"
+  root 'fruit#index'
 	get "about" => "about#index"
 	post "register" => "user#register"
 	get "register" => "user#register"
+	
+	# fruit
+  get "index" => "fruit#index"
+  get "search" => "fruit#search"
+	get "show" => "fruit#show"
 	
 	# admin,fruit_type
   get "admin/fruit_type/new" => "admin/fruit_type#new"

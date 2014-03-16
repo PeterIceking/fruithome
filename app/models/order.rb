@@ -1,5 +1,9 @@
 class Order < ActiveRecord::Base
 
+	belongs_to :user
+	has_many :order_items
+	has_many :fruits, :through => :order_items
+	
 	# TruitName_MIN_LENGTH = 1
 	# TruitName_MAX_LENGTH = 20
 	# TruitName_RANGE = TruitName_MIN_LENGTH..TruitName_MAX_LENGTH
