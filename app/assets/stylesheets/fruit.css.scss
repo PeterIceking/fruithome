@@ -1,0 +1,164 @@
+// Place all the styles related to the fruit controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#fruit_show {
+	width:100%;
+	position:relative;
+	clear:both;
+}
+.particular_fruit 	{
+	width:1200px;
+	margin:2px auto;
+}
+.fruit_info_wrap {
+	height: 520px;
+}
+.fruit_pics	{
+	position: relative;
+}
+.pics_wrapper {
+	width: 410px;
+	width: 500px;
+	float: left;
+	margin: 10px 30px;
+	padding: 5px;
+	display: inline;
+	border: #dcdcdc 1px solid; 
+	margin-right: 15px;
+}
+.undis {
+	display: none
+}
+#focus_img {
+}
+
+#simg IMG {
+	margin-top: 7px;
+	filter: alpha(opacity=50);
+	vertical-align: 0px;
+	cursor: pointer;
+}
+#simg .s IMG {
+	padding: 9px 2px 2px 2px;
+	margin-top: 0px;
+	background: url(images/simg_bg.gif) no-repeat;
+	filter: alpha(opacity=100);
+}
+
+.fruit_main_info{
+	position: relative;
+}
+.infos  {
+	width:600px;
+	height :510px;
+	float:left;
+	margin: 10px auto;
+}
+.pannel {
+}
+.wrap_detail {
+	border: 1px #d5d5d5 solid;
+	padding: 10px;
+}
+.score {
+	border:1px solid #d1d1d1;
+	height:120px;
+	padding:20px 20px;
+}
+.total_score {
+	width:200px;
+	text-align:center;
+	height:60px;
+	float:left;
+	color:#e4393c;
+}
+.percent_score {
+	float: left;
+	width:600px;
+}
+.user {
+	float: left;
+	height: 100px;
+	width: 100px;
+}
+.detail_comments{
+	margin: 20px 0;
+}
+.comment{
+	height:100px;
+	width:100%;
+	margin:20px 0;
+}
+.user{
+	float:left;
+	width:150px;
+	display:inline-block;
+	text-align:center;
+}
+.user ul {
+	margin:0;
+}
+.user ul li {
+	width:150px;
+}
+.comment_item{
+	height: 100px;
+	width: 600px;
+	display:inline-block;
+	border-bottom:1px solid #E0E0E0;
+	margin:10px;
+	position:relative;
+}
+.topic{
+	position:absolute;
+	bottom:10px;
+}
+//btn_type_nav
+$btn_type_nav_word_color:	#FFFFFF;
+$btn_type_nav_color:	#40AF39;
+$btn_type_nav_bover_color:	#309A28;
+.btn-type-nav {
+  color: $btn_type_nav_word_color;
+  background-color: $btn_type_nav_color;
+  border-color: $btn_type_nav_color;
+}
+.btn-type-nav:hover,
+.btn-type-nav:focus,
+.btn-type-nav:active,
+.btn-type-nav.active,
+.open .dropdown-toggle.btn-type-nav {
+  color: $btn_type_nav_word_color;
+  background-color: $btn_type_nav_bover_color;
+  border-color: $btn_type_nav_bover_color;
+}
+.btn-type-nav:active,
+.btn-type-nav.active,
+.open .dropdown-toggle.btn-type-nav {
+  background-image: none;
+}
+.btn-type-nav.disabled,
+.btn-type-nav[disabled],
+fieldset[disabled] .btn-type-nav,
+.btn-type-nav.disabled:hover,
+.btn-type-nav[disabled]:hover,
+fieldset[disabled] .btn-type-nav:hover,
+.btn-type-nav.disabled:focus,
+.btn-type-nav[disabled]:focus,
+fieldset[disabled] .btn-type-nav:focus,
+.btn-type-nav.disabled:active,
+.btn-type-nav[disabled]:active,
+fieldset[disabled] .btn-type-nav:active,
+.btn-type-nav.disabled.active,
+.btn-type-nav[disabled].active,
+fieldset[disabled] .btn-type-nav.active {
+  background-color: $btn_type_nav_color;
+  border-color: $btn_type_nav_color;
+}
+.btn-type-nav .badge {
+  color: $btn_type_nav_word_color;
+  background-color: $btn_type_nav_color;
+}
+.btn-group.open .btn-type-nav.dropdown-toggle {
+  background-color: $btn_type_nav_color;
+}

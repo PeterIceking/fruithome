@@ -3,15 +3,19 @@
 		
 			<%= image_tag "fruit_images/#{fruit_search.id}_270_270_1.jpg", :width => "250px", :alt =>"#{fruit_search.fruit_name}" %>
 	</div>
-	<div style=" text-align:center; ">
-		<a href="/show">
-			<span style="display:block;">
-				<%= fruit_search.fruit_name %>
-			</span>
-			<span style="display:block;"><%= fruit_search.brief_introduction %></span>
-		</a>
-		<!--span style="display:block;"><%= fruit_search.origin_place %></span-->
-		<span style="display:block;"><%= fruit_search.price_present %></span>
-		<span style="display:block;"><%= fruit_search.unit %></span>
+	<div style="">
+		<ul>
+			<li style="width:250px;height:20px;"><strong><a href="/show"><%= fruit_search.fruit_name %></strong></a></li>
+			<li style="width:250px;height:30px;"><span style="display:block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;"><%= fruit_search.brief_introduction %></span></li>
+			<li style="width:250px">
+				<span ><%= fruit_search.price_present %></span>
+				<span style=""><%= fruit_search.unit %></span>
+			</li>
+		</ul>
+		
+			
+		
+		<span style="display:block;"><%= fruit_search.origin_place %></span>
+		
 	</div>
 </div>

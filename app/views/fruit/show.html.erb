@@ -1,67 +1,243 @@
-<div style="width:100%; position:relative; clear:both;">
-	<div style="width:1200px; margin:2px auto; height:auto">
-		<div>
-			<%= link_to "首页", "/" %>
-			<span>></span>
-			<span><a href="#"><%= @fruit.fruit_type.type_name %></a></span>
-			<span>></span>
-			<span><%= @fruit.fruit_name %></span>
-		</div>
-	</div>
+<div id="fruit_show">
+	<div class="particular_fruit">
 	
-	<div>
-		<div class="xinxi">
-			<div class="pics">
-				<div class="pic"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "270px", :alt =>"#{@fruit.fruit_name}" %></div>
-				<div class="pic_list"></div>
+		<!-- 商品归属目录树 -->
+		<div>
+			<div>
+				<ol class="breadcrumb">
+					<li><%= link_to "首页", "/" %></li>
+					<li><a href="#"><%= @fruit.fruit_type.type_name %></a></li>
+					<li class="active"><%= @fruit.fruit_name %></li>
+				</ol>
+				<%= link_to "首页", "/" %>
+				<span>></span>
+				<span><a href="#"><%= @fruit.fruit_type.type_name %></a></span>
+				<span>></span>
+				<span><%= @fruit.fruit_name %></span>
 			</div>
-			
-			<div class="text">
-				<div class="price"><%= @fruit.price_present %><%= @fruit.unit %></div>
-				<div class="information"><%= @fruit.introduction %></div>
-				<div class="choose_quantity"><input type="text" value="1"></input></div>
-				<div class="shopping_cart"><input type="button" value="加入购物车"></input></div>
+		</div>
+	
+		<div class="fruit_info">
+			<div class="fruit_info_wrap">
+				<!-- 商品图片展示 -->
+				<div class="fruit_pics">
+					<div class="pics_wrapper">
+						<div class="pic" id="pic">
+							<div class="dis MagicZoomSmallImageCont" name="p" id="sc2">
+								<%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :id => "sim2", :width => "400px", :alt =>"#{@fruit.fruit_name}" %>
+								<div id="bc2" class="MagicZoomBigImageCont" style="width:300px; height:300px; left: 322px; top: 0px">
+									<%= image_tag "fruit_images/1_270_270_1.jpg", :id=> "bim2", :width => "400px", :alt =>"#{@fruit.fruit_name}" %>
+								</div>
+							</div>
+							<div class="undis" name="p"><%= image_tag "fruit_images/2_270_270_1.jpg", :width => "400px", :alt =>"#{@fruit.fruit_name}" %></div>
+							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "400px", :alt =>"#{@fruit.fruit_name}" %></div>
+							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "400px", :alt =>"#{@fruit.fruit_name}" %></div>
+						</div>
+						<div id="simg" class="pic_slider">
+							<ul class="pic_list">
+								<li class="s" onmouseover="play(this,'pic','');"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "70px", :alt =>"#{@fruit.fruit_name}" %></li>
+								<li onmouseover="play(this,'pic','');"><%= image_tag "fruit_images/2_270_270_1.jpg", :width => "70px", :alt =>"#{@fruit.fruit_name}" %></li>
+								<li onmouseover="play(this,'pic','');"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "70px", :alt =>"#{@fruit.fruit_name}" %></li>
+								<li onmouseover="play(this,'pic','');"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "70px", :alt =>"#{@fruit.fruit_name}" %></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 商品信息展示 -->
+				<div class="fruit_main_info">
+					<div class="infos">
+						<div class="title"><%= @fruit.price_present %><%= @fruit.fruit_name %></div>
+						<div class="brief_intro"><%= @fruit.price_present %><%= @fruit.brief_introduction %></div>
+						<div class="price">
+							<%= @fruit.price_present %>
+							<%= @fruit.unit %>
+							<!-- some others -->
+						</div>
+						<div class="information"><%= @fruit.introduction %></div>
+						<div class="sold_quantity"><%= "销量" %></div>
+						<div class="choose_quantity"><input type="text" value="1"></input></div>
+						<div class="shopping_cart"><input type="button" value="加入购物车"></input></div>
+					</div>
+				</div>
 			</div>
 		</div>
 		
-		<div class="detail_info_pics_and_text">
-			<div class="pics"><image src="/assets/fruit_images/1_270_270_1.jpg" /></div>
-			<div class="text"></div>
+		<!-- 商品详细信息展示，以及各种图片推介 -->
+		<div class="pannel">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" id="mytab">
+				<li class="active"><a href="" data-toggle="tab">商品详情</a></li>
+				<li><a href="#profile" data-toggle="tab">商品评论</a></li>
+				<li><a href="#messages" data-toggle="tab">商品购买记录</a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active" id="home">
+					<div class="detail_info_pics_and_text wrap_detail">
+						<div class="pics"><image src="/assets/fruit_images/1_270_270_1.jpg" /></div>
+						<div class="text"></div>
+					</div>
+				</div>
+				<div class="tab-pane active" id="profile">
+					<!-- 商品评论 -->
+					<div class="comments wrap_detail">
+						<div class="user_score">
+							<h2>用户评价<small style="color:red">（3）</small></h2>
+							<div class="score">
+								<div class="total_score">
+										<ul>
+											<li style="width:150px;height:30px;"><span>好评度</span></li>
+											<li style="width:150px;height:30px;"><span style="font-size:40px">93%</span></li>
+											<li style="width:150px;height:30px;">
+												<%= image_tag "star-on.png", :alt => "1" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "2" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "3" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "4" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "5" %>
+											</li>
+										</ul>
+										
+								</div>
+								<div class="percent_score">
+									<ul>
+										<li style="width:400px;height:30px">
+											<span style="float:left;width:100px">好评（93%）</span>
+											<div class="progress" style="width:200px;height:15px;">
+												<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+											</div>
+										</li>
+										<li style="width:400px;height:30px">
+											<span style="float:left;width:100px">中评（3%）</span>
+											<div class="progress" style="width:200px;height:15px;">
+												<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 3%"></div>
+											</div>
+										</li>
+										<li style="width:400px;height:30px">
+											<span style="float:left;width:100px">差评（2%）</span>
+											<div class="progress" style="width:200px;height:15px;">
+												<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 2%"></div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="detail_comments">
+							<div class="comment">
+								<div class="user">
+									<ul>
+										<li><img width="70px" height="70px"</img></li>
+										<li><span>xiacicong</span></li>
+									</ul>
+								</div>
+								<div class="comment_item">
+									<div class="comment_content">
+										<span>真是好好吃的水果哇</span>
+									</div>
+									<div class="topic">
+										<ul>
+											<li>
+												<%= image_tag "star-on.png", :alt => "1" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "2" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "3" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "4" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "5" %>
+											</li>
+											<li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+											<li><span>2014-03-11 08:00:00</span></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="comment">
+								<div class="user">
+									<ul>
+										<li><img width="70px" height="70px"</img></li>
+										<li><span>xiacicong</span></li>
+									</ul>
+								</div>
+								<div class="comment_item">
+									<div class="comment_content">
+										<span>真是好好吃的水果哇</span>
+									</div>
+									<div class="topic">
+										<ul>
+											<li>
+												<%= image_tag "star-on.png", :alt => "1" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "2" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "3" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "4" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "5" %>
+											</li>
+											<li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+											<li><span>2014-03-11 08:00:00</span></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane active" id="messages">
+					<!-- 商品购买记录 -->
+					<div class="deal_record wrap_detail">
+						<table class="tb-list" summary="买家出价记录" server-num="detailskip010236177043.cm4">
+							<thead>
+								<tr>
+									<th class="tb-buyer">买家</th>
+									<th class="tb-price">拍下价格</th>
+									<th class="tb-amount">数量</th>
+									<th class="tb-start">付款时间</th>
+									<th class="tb-sku">款式和型号</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="tb-buyer">我**9(匿名)</td>
+									<td class="tb-price">¥9.5</td>
+									<td class="tb-amount">20</td>
+									<td class="tb-start">2014-03-15 22:14:26</td>
+									<td class="tb-sku"><div class="tb-sku-wrap tb-sku-none "> <p>默认款式</p> </div></td>
+								</tr>
+								<tr>
+									<td class="tb-buyer">l**9(匿名)</td>
+									<td class="tb-price">¥9.5</td>
+									<td class="tb-amount">40</td>
+									<td class="tb-start">2014-03-11 22:49:10</td>
+									<td class="tb-sku"><div class="tb-sku-wrap tb-sku-none "> <p>默认款式</p> </div></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 		
-		<div class="comments">
-			<div class="user_score">
-				<div class="total_score">好评度93%</div>
-				<div class="detail_scare">
-					<span>好评（97%）</span><span>分数条</span>
-					<span>中评（7%）</span><span>分数条</span>
-					<span>差评（3%）</span><span>分数条</span>
-				</div>
-			</div>
-			<div class="detail_comments">
-				<div class="comment">
-					<div class="user">xiacicong</div>
-					<div class="comment_content">
-						<span>真是好好吃的水果哇</span>
-						<span>addtime</span>
-					</div>
-				</div>
-				<div class="comment">
-					<div class="user">xiacicong</div>
-					<div class="comment_content">
-						<span>真是好好吃的水果哇</span>
-						<span>addtime</span>
-					</div>
-				</div>
-			</div>
-		</div>
+		
+		
+		
+		
 		
 		<!--div class="xinxi">
 			<div class="monthly_sales"></div>
 		</div-->
 	</div>
 </div>
-
+<script type="text/javascript">
+  $("#mytab li:first").click(function(){
+		$('.tab-pane').addClass("active");
+  })
+</script>
+<script type="text/javascript">
+    var settings = {
+        bigImage_always_visible: false,
+        drag_mode: false
+    };
+    zoom = new MagicZoom('sc2', 'sim2', 'bc2', 'bim2', settings);
+    zoom.initZoom();
+</script>
 
 
 

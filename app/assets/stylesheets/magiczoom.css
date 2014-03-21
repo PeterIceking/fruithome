@@ -1,0 +1,44 @@
+/* Copyright 2007 MagicToolBox.com. To use this code on your own site, visit http://magictoolbox.com */
+
+.MagicZoomSmallImageCont {
+position: relative;
+}
+
+.MagicZoomBigImageCont {
+overflow: hidden;
+position: absolute;
+z-index: 100;
+border: 1px solid #9E2F2D;
+visibility: hidden;
+/* display: none; */
+}
+
+.MagicZoomHeader {
+position: relative;
+z-index: 10;
+left: 0px;
+top: 0px;
+font: 10px Tahoma, Verdana, Arial, sans-serif;
+color:#fff;
+background:#9E2F2D;
+padding:3px;
+}
+
+.MagicZoomHeader a {
+color: #fff;
+}
+
+.MagicZoomPup {
+z-index                 : 10;
+visibility              : hidden;
+position                : absolute;
+width                   : 50px;
+height                  : 50px;
+border: 1px solid #aaa;
+background: #ffffff;
+opacity: 0.5;
+-moz-opacity: 0.5;
+-khtml-opacity: 0.5;
+filter: alpha(Opacity=50);
+}
+
