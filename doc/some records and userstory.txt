@@ -1,4 +1,7 @@
 ﻿一些语句：
+layout "layout" #直接写layout
+render :layout => "layout" #直接写layout
+layout :determine_layout #通过determine_layout方法确定layout
 Order.where(id:[1,2]).load
 Fruit.where( :fruit_type_id => 3)
 Fruit.select(:id, :fruit_name, :description).limit(2).where("fruit_name like ?", "%瓜%")

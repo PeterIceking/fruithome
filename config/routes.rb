@@ -8,7 +8,16 @@ Fruithome::Application.routes.draw do
 	# fruit
   get "index" => "fruit#index"
   get "search" => "fruit#search"
-	get "show" => "fruit#show"
+	get "show" => "fruit#show"	
+	
+	# order
+  get "order/index" => "order#index"
+  get "order/show" => "order#show"
+	get "order/pay" => "order#pay"
+	get "order/cart" => "order#cart"
+	
+	# cart
+	get "cart/show" => "cart#show"
 	
 	# admin,fruit_type
   get "admin/fruit_type/new" => "admin/fruit_type#new"

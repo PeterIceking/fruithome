@@ -11,8 +11,8 @@ class Order < ActiveRecord::Base
 	# Description_MAX_LENGTH = 200
 	# Description_RANGE = Description_MIN_LENGTH..Description_MAX_LENGTH
 	
-	validates :fruit_id,	:presence => true												
-	validates :user_id,		:presence => true
-	validates :fruit_amount,	
-												:presence => true
+	# validates :fruit_id,	:presence => true												
+	# validates :user_id,		:presence => true
+	# validates :fruit_amount,	
+												# :presence => true
 end

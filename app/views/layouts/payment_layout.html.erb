@@ -23,14 +23,9 @@
 		<ul class="top_nav_right">
 			<li class="btn-group">
 				<div>
-				<span class="dropdown-toggle" data-toggle="dropdown"><%= link_to "个人中心", "order/show" %><i class="icon-chevron-down"></i></span>
+				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">个人中心</a><i class="icon-chevron-down"></i></span>
 				<ul class="dropdown-menu">
-					<li>
-						<%= link_to "order/show" do %>
-							<i class="icon-star"></i>
-							<span>我的订单</span>
-						<% end %>
-					</li>
+					<li><a href="#"><i class="icon-star"></i> 我的订单</a></li>
 					<li><a href="#"><i class="icon-tag"></i> 我的优惠</a></li>
 					<li class="divider"></li>
 					<li><a href="#"><i class="icon-tint"></i>退出</a></li>
@@ -65,54 +60,17 @@
 		<div class="hd_logo fl">
 			<a href="http://localhost:3000/"><%= image_tag("fruit_home_logo.png") %></a>
 		</div>
-		<div class="hd_search fl">
-			<div class="hd_search_form">
-				<input type="text" placeholder="请输入关键词" id="search_word"></input>
-				<input type="submit" value="搜索"></input>
+		<div class="hd_progress fl">
+			<button id="button" class="btn btn-default" data-container="body" data-rel="popover" data-placement="left" data-content="查看并确认您选中的商品." data-title="第一步">
+				1.我的购物车
+			</button>
+			<button id="button" class="btn" data-container="body" data-rel="popover" data-placement="bottom" data-content="填写并确认订单所需信息." data-title="第二步">
+				2.填写核对订单信息
+			</button>
+			<button id="button" class="btn" data-container="body" data-rel="popover" data-placement="bottom" data-content="提交订单." data-title="第三步">
+				3.成功提交订单
+			</button>
 			</div>
-			<p id="hot_keyword" class="hd_hot_keyword_search">
-				<span>果友都在找：</span>
-				<a href="#">苹果</a>
-				<a href="#">梨子</a>
-				<a href="#">送礼</a>
-				<a href="#">礼包</a>
-				<a href="#">春季</a>
-				<a href="#">特惠</a>
-				<a href="#">学生</a>
-			</p>
-		</div>
-		<div class="hd_banner fl">
-			<div class="cart">
-				<div class="btn-group">
-					<button type="button" class="btn btn-type-nav">
-					<span class="icon32 icon-orange icon-cart"></span>
-					<%= link_to "我的购物车（3件）", "/order/cart", style: "color:white;"  %>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div id="hd_nav">
-	<div class="fruit_type">
-		<div class="fruit_type_nav fl">
-			<div class="btn-group">
-				<button type="button" class="btn btn-type-nav">漂亮的首页</button>
-			</div>
-			<% FruitType.where( :super_id => nil ).each do |suptype| %>
-				<div class="btn-group">
-					<button type="button" class="btn btn-type-nav dropdown-toggle" data-toggle="dropdown">
-						<%= suptype.type_name %>
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
-						<% FruitType.where( :super_id => suptype.id ).each do |subtype| %>
-							<li><a href="#"><%= subtype.type_name %></a></li>
-						<% end %>
-					</ul>
-				</div>	
-			<% end %>
 		</div>
 	</div>
 </div>
@@ -187,7 +145,7 @@
 <!-- <%= javascript_include_tag "fullcalendar.min", "data-turbolinks-track" => true %> -->
 
 <!-- data table plugin -->
-<!-- <%= javascript_include_tag "jquery.dataTables.min", "data-turbolinks-track" => true %> -->
+<%= javascript_include_tag "jquery.dataTables.min", "data-turbolinks-track" => true %>
 
 <!-- chart libraries start -->
 <%= javascript_include_tag "excanvas", "data-turbolinks-track" => true %>
@@ -201,7 +159,7 @@
 <%= javascript_include_tag "jquery.chosen.min", "data-turbolinks-track" => true %>
 
 <!-- checkbox, radio, and file input styler -->
-<!-- <%= javascript_include_tag "jquery.uniform.min", "data-turbolinks-track" => true %> -->
+<%= javascript_include_tag "jquery.uniform.min", "data-turbolinks-track" => true %>
 
 <!-- plugin for gallery image view -->
 <!-- <%= javascript_include_tag "jquery.colorbox.min", "data-turbolinks-track" => true %> -->
