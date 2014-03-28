@@ -7,13 +7,13 @@
 				<ol class="breadcrumb">
 					<li><%= link_to "首页", "/" %></li>
 					<li><a href="#"><%= @fruit.fruit_type.type_name %></a></li>
-					<li class="active"><%= @fruit.fruit_name %></li>
+					<li class="active"><%= @fruit.name %></li>
 				</ol>
 				<%= link_to "首页", "/" %>
 				<span>></span>
 				<span><a href="#"><%= @fruit.fruit_type.type_name %></a></span>
 				<span>></span>
-				<span><%= @fruit.fruit_name %></span>
+				<span><%= @fruit.name %></span>
 			</div>
 		</div>
 	
@@ -24,21 +24,22 @@
 					<div class="pics_wrapper">
 						<div class="pic" id="pic">
 							<div class="dis MagicZoomSmallImageCont" name="p" id="sc2">
-								<%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :id => "sim2", :width => "400px", :alt =>"#{@fruit.fruit_name}" %>
+								<%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :id => "sim2", :width => "400px", :alt =>"#{@fruit.name}" %>
 								<div id="bc2" class="MagicZoomBigImageCont" style="width:300px; height:300px; left: 322px; top: 0px">
-									<%= image_tag "fruit_images/1_270_270_1.jpg", :id=> "bim2", :width => "400px", :alt =>"#{@fruit.fruit_name}" %>
+									<%= image_tag "fruit_images/1_270_270_1.jpg", :id=> "bim2", :width => "400px", :alt =>"#{@fruit.name}" %>
 								</div>
 							</div>
-							<div class="undis" name="p"><%= image_tag "fruit_images/2_270_270_1.jpg", :width => "400px", :alt =>"#{@fruit.fruit_name}" %></div>
-							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "400px", :alt =>"#{@fruit.fruit_name}" %></div>
-							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "400px", :alt =>"#{@fruit.fruit_name}" %></div>
+							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_2.jpg", :width => "400px", :alt =>"#{@fruit.name}" %></div>
+							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_3.jpg", :width => "400px", :alt =>"#{@fruit.name}" %></div>
+							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_4.jpg", :width => "400px", :alt =>"#{@fruit.name}" %></div>
 						</div>
 						<div id="simg" class="pic_slider">
 							<ul class="pic_list">
-								<li class="s" onmouseover="play(this,'pic','');"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "70px", :alt =>"#{@fruit.fruit_name}" %></li>
-								<li onmouseover="play(this,'pic','');"><%= image_tag "fruit_images/2_270_270_1.jpg", :width => "70px", :alt =>"#{@fruit.fruit_name}" %></li>
-								<li onmouseover="play(this,'pic','');"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "70px", :alt =>"#{@fruit.fruit_name}" %></li>
-								<li onmouseover="play(this,'pic','');"><%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :width => "70px", :alt =>"#{@fruit.fruit_name}" %></li>
+								<% get_images(@fruit.id).each do |image| %>
+									<li onmouseover="play(this,'pic','');">
+										<%= image_tag "fruit_images/#{image}", :width => "70px", :alt =>"#{ image.to_s}" %>
+									</li>
+								<% end%>
 							</ul>
 						</div>
 					</div>
@@ -47,7 +48,7 @@
 				<!-- 商品信息展示 -->
 				<div class="fruit_main_info">
 					<div class="infos">
-						<div class="title"><%= @fruit.price_present %><%= @fruit.fruit_name %></div>
+						<div class="title"><%= @fruit.price_present %><%= @fruit.name %></div>
 						<div class="brief_intro"><%= @fruit.price_present %><%= @fruit.brief_introduction %></div>
 						<div class="price">
 							<%= @fruit.price_present %>
@@ -57,7 +58,9 @@
 						<div class="information"><%= @fruit.introduction %></div>
 						<div class="sold_quantity"><%= "销量" %></div>
 						<div class="choose_quantity"><input type="text" value="1"></input></div>
-						<div class="shopping_cart"><input type="button" value="加入购物车"></input></div>
+						<div class="shopping_cart">
+							<%= button_to "加入购物车", action:"add_to_cart", id:@fruit.id %>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -229,6 +232,7 @@
   $("#mytab li:first").click(function(){
 		$('.tab-pane').addClass("active");
   })
+	$(".pic_list li:first").addClass("s")
 </script>
 <script type="text/javascript">
     var settings = {

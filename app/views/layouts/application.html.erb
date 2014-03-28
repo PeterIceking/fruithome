@@ -6,6 +6,8 @@
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "pic_list", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "pic_zoom_up", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -26,7 +28,7 @@
 				<span class="dropdown-toggle" data-toggle="dropdown"><%= link_to "个人中心", "order/show" %><i class="icon-chevron-down"></i></span>
 				<ul class="dropdown-menu">
 					<li>
-						<%= link_to "order/show" do %>
+						<%= link_to order_show_path do %>
 							<i class="icon-star"></i>
 							<span>我的订单</span>
 						<% end %>
@@ -86,7 +88,10 @@
 				<div class="btn-group">
 					<button type="button" class="btn btn-type-nav">
 					<span class="icon32 icon-orange icon-cart"></span>
-					<%= link_to "我的购物车（3件）", "/order/cart", style: "color:white;"  %>
+					<%= link_to cart_show_path, style: "color:white;" do %>
+						<span>我的购物车 </span>
+						<span class="notification red"><%= Order.find_by_user_id(1).order_items.length %></span>
+					<% end %>
 					</button>
 				</div>
 			</div>
@@ -159,8 +164,7 @@
 <!-- external javascript
 ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-<%= javascript_include_tag "pic_list", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "pic_zoom_up", "data-turbolinks-track" => true %>
+
 
 <!-- jQuery -->
 <%= javascript_include_tag "jquery-1.7.2.min", "data-turbolinks-track" => true %>

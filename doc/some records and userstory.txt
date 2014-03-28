@@ -148,3 +148,109 @@ Block：block是快速创建一次性、无命名（匿名）函数的一种方�
 			</li>
 		</ul>
 
+		
+		
+#购物车界面table
+<div class="row-fluid  ui-sortable">		
+	<div class="box span12" style="">
+		<div class="box-header well" data-original-title="">
+			我的购物车
+		</div>
+		<div class="box-content">
+			<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
+				<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+					<thead>
+						<tr role="row">
+							<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Checkbox: activate to sort column ascending" style="width: 136px;">
+								<label class="checkbox-inline">
+									<input type="checkbox" id="inlineCheckbox1" value="option1">
+								</label>全选
+							</th>
+							<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending" style="width: 136px;">商品</th>
+							<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date registered: activate to sort column ascending" style="width: 135px;">单价</th>
+							<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 48px;">优惠</th>
+							<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 64px;">（地点）库存</th>
+							<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 128px;">数量</th>
+							<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 128px;">Actions</th>
+						</tr>
+					</thead>   
+						
+					<tbody role="alert" aria-live="polite" aria-relevant="all">
+						<tr class="odd">
+							<td class=" sorting_1">
+								<label class="checkbox-inline">
+									<input type="checkbox" id="inlineCheckbox1" value="option1">
+								</label>
+							</td>
+							<td class=" sorting_1">苹果</td>
+							<td class="center ">10</td>
+							<td class="center ">优惠</td>
+							<td class="center ">
+								<span class="label label-important">无货</span>
+							</td>
+							<td class="center ">数量</td>
+							<td class="center ">
+								<a class="btn btn-success" href="#">
+									收藏                                            
+								</a>
+								<a class="btn btn-danger" href="#">
+									删除
+								</a>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class=" sorting_1">
+								<label class="checkbox-inline">
+									<input type="checkbox" id="inlineCheckbox1" value="option1">
+								</label>
+							</td>
+							<td class=" sorting_1">Abraham</td>
+							<td class="center ">2012/03/01</td>
+							<td class="center ">Member</td>
+							<td class="center ">
+								<span class="label label-warning">Pending</span>
+							</td>
+							<td class="center ">数量</td>
+							<td class="center ">
+								<a class="btn btn-success" href="#">
+									收藏                                            
+								</a>
+								<a class="btn btn-danger" href="#">
+									删除
+								</a>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="6">
+								2件商品 总价：120元
+												优惠：10元
+												总计：10元
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				<button id="button" class="btn btn-default" >继续购物</button>
+				<button id="button" class="btn btn-default" >去结算</button>
+			<!-- 	<div class="row-fluid">
+					<div class="span12">
+						<div class="dataTables_info" id="DataTables_Table_0_info">Showing 1 to 10 of 32 entries</div>
+					</div>
+					<div class="span12 center">
+						<div class="dataTables_paginate paging_bootstrap pagination">
+							<ul>
+								<li class="prev disabled"><a href="#">← Previous</a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li class="next"><a href="#">Next → </a></li>
+							</ul>
+						</div>
+					</div>
+				</div> -->
+			</div>            
+		</div>
+	</div><!--/span-->
+</div>

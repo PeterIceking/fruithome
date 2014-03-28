@@ -1,0 +1,32 @@
+
+
+<% fruit = order_item.fruit %>
+<tr>
+	<td>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox1" value="1">
+		</label>
+	</td>
+	<td><%= fruit.name %></td>
+	<td><%= fruit.unit %></td>
+	<td><%= fruit.price_present %></td>
+	<td><%= fruit.price_present.to_f - fruit.price_history.to_f %></td>
+	<td>
+		<% if fruit.inventory.to_i > 10 %>
+			<span class="label label-success">货源充足</span>
+		<% elsif fruit.inventory.to_i >0 %>
+			<span class="label label-warning">货源紧张</span>
+		<% else %>
+			<span class="label">货源暂无</span>
+		<% end %>
+	</td>
+	<td><%= order_item.quantity %></td>
+	<td>
+		<a class="btn btn-success" href="#">
+			收藏                                            
+		</a>
+		<a class="btn btn-danger" href="#">
+			删除
+		</a>
+	</td>
+</tr>

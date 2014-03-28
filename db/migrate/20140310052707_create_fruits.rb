@@ -11,7 +11,7 @@ class CreateFruits < ActiveRecord::Migration
 										:add_date
 			t.boolean			:is_hot
 			t.float				:price_present,
-										:price_hirtory,
+										:price_history,
 										:price_other,
 										:discount
       t.timestamps

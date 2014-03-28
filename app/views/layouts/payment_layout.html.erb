@@ -6,6 +6,8 @@
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "pic_list", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "pic_zoom_up", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -117,8 +119,7 @@
 <!-- external javascript
 ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-<%= javascript_include_tag "pic_list", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "pic_zoom_up", "data-turbolinks-track" => true %>
+
 
 <!-- jQuery -->
 <%= javascript_include_tag "jquery-1.7.2.min", "data-turbolinks-track" => true %>
