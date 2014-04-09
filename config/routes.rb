@@ -2,8 +2,17 @@
 Fruithome::Application.routes.draw do
   root 'fruit#index'
 	get "about" => "about#index"
+	
+	# user
+	get "login" => "user#login"
+	post "login" => "user#login"
 	post "register" => "user#register"
 	get "register" => "user#register"
+	get "user" => "user#index"
+	get "logout" => "user#logout"
+	get "user/information" => "user#information"
+	
+	# account
 	
 	# fruit
   get "index" => "fruit#index"
@@ -15,6 +24,7 @@ Fruithome::Application.routes.draw do
   get "order/index" => "order#index"
   get "order/show" => "order#show"
 	get "order/pay" => "order#pay"
+	get "order/collection" => "order#collection"
 	# get "order/cart" => "order#cart"
 	
 	# cart
@@ -110,3 +120,4 @@ Fruithome::Application.routes.draw do
   #     resources :products
   #   end
 end
+

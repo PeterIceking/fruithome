@@ -20,7 +20,7 @@
 			</thead>   
 				
 			<tbody role="alert" aria-live="polite" aria-relevant="all">
-				<%= render :partial=> "order_item", :collection => @order_items %>
+				<%= render :partial=> "cart_item", :collection => @cart_items %>
 			</tbody>
 			<tfoot>
 				<tr>
@@ -32,7 +32,24 @@
 				</tr>
 			</tfoot>
 		</table>
-		<button id="button" class="btn btn-default" >继续购物</button>
-		<button id="button" class="btn btn-default" >去结算</button>
+		<%= link_to "继续购物", root_path, :class => "btn" %>
+		<%= link_to "去结算", order_pay_path, class:"btn btn-danger" %>
 	</div>
 </div>
+<!-- 	<div class="row-fluid">
+		<div class="span12">
+			<div class="dataTables_info" id="DataTables_Table_0_info">Showing 1 to 10 of 32 entries</div>
+		</div>
+		<div class="span12 center">
+			<div class="dataTables_paginate paging_bootstrap pagination">
+				<ul>
+					<li class="prev disabled"><a href="#">← Previous</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li class="next"><a href="#">Next → </a></li>
+				</ul>
+			</div>
+		</div>
+	</div> -->

@@ -2,19 +2,18 @@ class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
 			t.string 	:username,
-								:username_real, 
+								:real_name, 
 								:sex,
 								:birthdate,
 								:e_mail, 
-								:password, 
+								:password_text, 
+								:password_digest, 
 								:question,
 								:answer,
 								:phone_number,
 								:shopping_exp,
 								:member_type,
-								:mail_address, 
 								:city, 
-								:address,
 								:post_code,
 								:advance_payment,
 								:latest_log_date	#上次登录时间

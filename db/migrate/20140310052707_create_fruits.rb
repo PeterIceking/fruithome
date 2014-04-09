@@ -2,13 +2,12 @@ class CreateFruits < ActiveRecord::Migration
   def change
     create_table :fruits do |t|
 			t.integer 		:fruit_type_id,
-										:inventory_quantity
-			t.string			:fruit_name,
-										:origin_place,
+										:origin_place_id,
+										:inventory
+			t.string			:name,
 										:introduction,
 										:brief_introduction,
-										:unit,	#单位
-										:add_date
+										:unit		#单位
 			t.boolean			:is_hot
 			t.float				:price_present,
 										:price_history,

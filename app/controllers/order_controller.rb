@@ -2,7 +2,7 @@
 class OrderController < ApplicationController
 	layout "self_center"
   def index
-		# @fruits = Fruit.all.limit(4)
+		@orders = Order.where("user_id =? and status != 0", current_user.id)
   end
 	
 	def show

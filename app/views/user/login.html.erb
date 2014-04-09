@@ -1,0 +1,11 @@
+<h2>用户登陆</h2>
+<%= form_tag %>
+	<p><label for="login">邮箱</label><br/>
+	<%= text_field_tag 'login' %></p>
+
+	<p><label for="password">密码</label><br/>
+	<%= password_field_tag 'password' %></p>
+
+	<p><label for="remember_me">记住密码:</label>
+	<%= check_box_tag 'remember_me', "p", "true" %></p>
+<%= submit_tag "登陆", :class => "submit btn btn-success" %>

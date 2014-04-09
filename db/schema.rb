@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315153300) do
+ActiveRecord::Schema.define(version: 20140330164600) do
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
-    t.integer  "type"
+    t.string   "type"
     t.float    "money"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,7 +24,15 @@ ActiveRecord::Schema.define(version: 20140315153300) do
   create_table "admin_users", force: true do |t|
     t.string   "username"
     t.string   "password"
+    t.string   "admin_type"
     t.string   "e_mail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "collections", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "fruit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,31 +42,39 @@ ActiveRecord::Schema.define(version: 20140315153300) do
     t.integer  "user_id"
     t.integer  "content"
     t.integer  "status"
-    t.string   "add_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "consultations", force: true do |t|
+    t.integer  "fruit_id"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.string   "question"
+    t.string   "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "fruit_types", force: true do |t|
-    t.integer  "super_id"
-    t.string   "type_name"
+    t.string   "name"
     t.string   "description"
+    t.integer  "super_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "fruits", force: true do |t|
     t.integer  "fruit_type_id"
-    t.integer  "inventory_quantity"
-    t.string   "fruit_name"
-    t.string   "origin_place"
+    t.integer  "origin_place_id"
+    t.integer  "inventory"
+    t.string   "name"
     t.string   "introduction"
     t.string   "brief_introduction"
     t.string   "unit"
-    t.string   "add_date"
     t.boolean  "is_hot"
     t.float    "price_present"
-    t.float    "price_hirtory"
+    t.float    "price_history"
     t.float    "price_other"
     t.float    "discount"
     t.datetime "created_at"
@@ -83,13 +99,20 @@ ActiveRecord::Schema.define(version: 20140315153300) do
   create_table "orders", force: true do |t|
     t.integer  "user_id"
     t.integer  "status"
-    t.string   "order_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "origin_places", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "super_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "suppliers", force: true do |t|
-    t.string   "supplier_name"
+    t.string   "name"
     t.string   "phone_number"
     t.string   "e_mail"
     t.string   "address"
@@ -98,7 +121,7 @@ ActiveRecord::Schema.define(version: 20140315153300) do
     t.datetime "updated_at"
   end
 
-  create_table "supply_infos", force: true do |t|
+  create_table "supply_infomations", force: true do |t|
     t.integer  "fruit_id"
     t.integer  "supplier_id"
     t.integer  "quantity"
@@ -112,16 +135,9 @@ ActiveRecord::Schema.define(version: 20140315153300) do
     t.datetime "updated_at"
   end
 
-  create_table "tests", primary_key: "number", force: true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "username_real"
+    t.string   "real_name"
     t.string   "sex"
     t.string   "birthdate"
     t.string   "e_mail"
@@ -131,9 +147,7 @@ ActiveRecord::Schema.define(version: 20140315153300) do
     t.string   "phone_number"
     t.string   "shopping_exp"
     t.string   "member_type"
-    t.string   "mail_address"
     t.string   "city"
-    t.string   "address"
     t.string   "post_code"
     t.string   "advance_payment"
     t.string   "latest_log_date"

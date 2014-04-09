@@ -1,25 +1,27 @@
-<div style="width:300px; height:400px;" class="fl">
-	<div style="padding:15px;">
+<div class="fl table table-bordered" style="width:240px; height:400px;margin:15px;">
+	<div class="" style="">
 		
 			<%= image_tag "fruit_images/#{fruit_search.id}_270_270_1.jpg", :width => "250px", :alt =>"#{fruit_search.name}" %>
 	</div>
 	<div style="">
-		<ul>
-			<li style="width:250px;height:20px;">
+		<ul style="margin: 0 0 9px 15px;">
+			<li style="width:200px;height:20px;">
 				<%= link_to :action => "show", :id => fruit_search do %>
 					<strong><%= fruit_search.name %></strong>
 				<% end %>
 			</li>
-			<li style="width:250px;height:30px;"><span style="display:block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;"><%= fruit_search.brief_introduction %></span></li>
-			<li style="width:250px">
+			<li style="width:200px;height:30px;"><span style="display:block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;"><%= fruit_search.brief_introduction %></span></li>
+			<li style="width:200px">
 				<span ><%= fruit_search.price_present %></span>
+				<span>/</span>
 				<span style=""><%= fruit_search.unit %></span>
 			</li>
+			<li><span style="display:block;"><%= fruit_search.origin_place.name %></span></li>
 		</ul>
 		
 			
 		
-		<span style="display:block;"><%= fruit_search.origin_place %></span>
+		
 		
 	</div>
 </div>

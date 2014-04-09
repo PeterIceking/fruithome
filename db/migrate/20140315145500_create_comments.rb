@@ -5,7 +5,6 @@ class CreateComments < ActiveRecord::Migration
 									:user_id,
 									:content,
 									:status
-			t.string		:add_date
       t.timestamps
     end
   end

@@ -6,12 +6,12 @@
 			<div>
 				<ol class="breadcrumb">
 					<li><%= link_to "首页", "/" %></li>
-					<li><a href="#"><%= @fruit.fruit_type.type_name %></a></li>
+					<li><a href="#"><%= @fruit.fruit_type.name %></a></li>
 					<li class="active"><%= @fruit.name %></li>
 				</ol>
 				<%= link_to "首页", "/" %>
 				<span>></span>
-				<span><a href="#"><%= @fruit.fruit_type.type_name %></a></span>
+				<span><a href="#"><%= @fruit.fruit_type.name %></a></span>
 				<span>></span>
 				<span><%= @fruit.name %></span>
 			</div>
@@ -23,19 +23,21 @@
 				<div class="fruit_pics">
 					<div class="pics_wrapper">
 						<div class="pic" id="pic">
-							<div class="dis MagicZoomSmallImageCont" name="p" id="sc2">
+							<% images = get_images(@fruit.id) %>
+							<!-- 放大图片 -->
+							<!-- <div class="dis MagicZoomSmallImageCont" name="p" id="sc2">
 								<%= image_tag "fruit_images/#{@fruit.id}_270_270_1.jpg", :id => "sim2", :width => "400px", :alt =>"#{@fruit.name}" %>
 								<div id="bc2" class="MagicZoomBigImageCont" style="width:300px; height:300px; left: 322px; top: 0px">
 									<%= image_tag "fruit_images/1_270_270_1.jpg", :id=> "bim2", :width => "400px", :alt =>"#{@fruit.name}" %>
 								</div>
-							</div>
-							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_2.jpg", :width => "400px", :alt =>"#{@fruit.name}" %></div>
-							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_3.jpg", :width => "400px", :alt =>"#{@fruit.name}" %></div>
-							<div class="undis" name="p"><%= image_tag "fruit_images/#{@fruit.id}_270_270_4.jpg", :width => "400px", :alt =>"#{@fruit.name}" %></div>
+							</div> -->
+							<% images.each do |im| %>
+								<div class=<%= im==images.first ? "dis" : "undis" %> name="p"><%= image_tag "fruit_images/#{im}", :width => "400px", :alt =>"#{@fruit.name}" %></div>
+							<% end %>
 						</div>
 						<div id="simg" class="pic_slider">
 							<ul class="pic_list">
-								<% get_images(@fruit.id).each do |image| %>
+								<% images.each do |image| %>
 									<li onmouseover="play(this,'pic','');">
 										<%= image_tag "fruit_images/#{image}", :width => "70px", :alt =>"#{ image.to_s}" %>
 									</li>
@@ -57,10 +59,17 @@
 						</div>
 						<div class="information"><%= @fruit.introduction %></div>
 						<div class="sold_quantity"><%= "销量" %></div>
-						<div class="choose_quantity"><input type="text" value="1"></input></div>
-						<div class="shopping_cart">
-							<%= button_to "加入购物车", action:"add_to_cart", id:@fruit.id %>
+						<%= form_tag action:"add_to_cart" do %>
+						<div class="choose_quantity">
+							<%= number_field_tag 'num', value="1", style:"font-size:20px;height:40px;" %>
+							<%= hidden_field_tag 'id', value=@fruit.id %>
 						</div>
+						<div class="shopping_cart">
+							<%= submit_tag "加入购物车" %>
+						</div>
+						<% end%>
+						
+						
 					</div>
 				</div>
 			</div>
@@ -247,6 +256,6 @@
 
 <% if flash[:notice] %>
 	<script>
-		window.alert("恭喜您，注册成功！");
+		//window.alert("恭喜您，注册成功！");
 	</script>
 <% end %>

@@ -5,7 +5,7 @@ module ApplicationHelper
   def errors_for(object, message=nil)
     html = ""
     unless object.errors.blank?
-      html << "<div class='formErrors #{object.class.name.humanize.downcase}Errors'>\n"
+      html << "<div class=' errors #{object.class.name.humanize.downcase}_errors'>\n"
       if message.blank?
         if object.new_record?
           html << "\t\t<h5>There was a problem creating the #{object.class.name.humanize.downcase}</h5>\n"

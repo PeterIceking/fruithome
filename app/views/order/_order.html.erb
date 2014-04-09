@@ -1,0 +1,31 @@
+<tr border-bottom-width=0px>
+	<td colspan="6">
+		<span>订单编号：</span>
+		<%= link_to controller:"order", :action => "show", :id => order do %>
+			<strong><%= order.id %></strong>
+		<% end %>
+		<span style="width:30px"></span>
+		<%= link_to "水果之家", root_path, style:"margin-left:100px;" %>
+	</td>
+</tr>
+<tr border-top-width=0px>
+	<td>
+		<% order.order_items.each do |i| %>
+			<%= link_to controller:"fruit", action:"show", id:i.fruit do %>
+				<%= image_tag "fruit_images/#{get_images(i.fruit.id).first}", width:"50px", height:"50px", alt:"#{i.fruit.name}", title:i.fruit.name %>
+			<% end %>
+		<% end %>
+	</td>
+	<td><%= order.user.username %></td>
+	<td><%= order.total_price %></td>
+	<td><%= order.updated_at %></td>
+	<td><%= order.status_text %></td>
+	<td>
+		<a class="btn btn-success" href="#">
+			查看                                            
+		</a>
+		<a class="btn btn-danger" href="#">
+			删除
+		</a>
+	</td>
+</tr>

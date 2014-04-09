@@ -1,4 +1,6 @@
 ﻿一些语句：
+rake db:migrate
+rake db:seed
 layout "layout" #直接写layout
 render :layout => "layout" #直接写layout
 layout :determine_layout #通过determine_layout方法确定layout
@@ -10,9 +12,19 @@ select:	取出的字段
 offset: 跳过的数据条目数
 limit: 取出的最大数量
 order: 排序
-
 where: conditon可以是string，array，hash
+equal: == === eql? equal? 区别待查
 UserStory
+Todo
+数据库(okay)
+收藏功能
+加入购物车
+结账
+注册
+登陆后显示用户名
+评论
+大图介绍
+
 Todo
 db：购物车，订单和订单明细表
 显示所有商品
@@ -254,3 +266,10 @@ Block：block是快速创建一次性、无命名（匿名）函数的一种方�
 		</div>
 	</div><!--/span-->
 </div>
+
+
+#搜索form
+				<%= form_tag :action => "search", :controller => "fruit" do %>
+					<%= text_field "fruit", "search_word" %>
+					<%= submit_tag "搜索" %>
+				<% end %>

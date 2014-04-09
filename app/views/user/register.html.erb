@@ -1,15 +1,15 @@
+		<% if flash[:alert] %>
+			<%= flash[:alert] %>
+		<% end %>
 <h2>用户注册</h2>
 <%= form_for(:user) do |f| %>
 	<fieldset>
 		<legend>输入您的注册信息</legend>
-		<% if flash[:alert] %>
-			<%= flash[:alert] %>
-		<% end %>
 		<label for="username">用户名</label>
 		<%= f.text_field :username %>
 		<br />
 		<label for="email">E-mail</label>
-		<%= f.text_field :email %>
+		<%= f.text_field :e_mail %>
 		<br />
 		<label for="password">登录密码</label>
 		<%= f.password_field :password %>

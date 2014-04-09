@@ -1,12 +1,14 @@
 class Fruit < ActiveRecord::Base
 	
-	# has_many :fruit_types 
-	belongs_to :fruit_type
-	has_many :comments
-	has_many :supply_infomations
-	has_many :suppliers, :through => :supply_infomations
-	has_many :order_items
-	has_many :orders, :through => :order_items
+	belongs_to	:fruit_type
+	belongs_to	:origin_place
+	has_many		:collections
+	has_many		:consultations
+	has_many		:comments
+	has_many		:supply_infomations
+	has_many		:suppliers, :through => :supply_infomations
+	has_many		:order_items
+	has_many		:orders, :through => :order_items
 	
 	# TruitName_MIN_LENGTH = 1
 	# TruitName_MAX_LENGTH = 20

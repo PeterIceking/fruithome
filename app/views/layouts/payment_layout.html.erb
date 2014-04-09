@@ -11,51 +11,7 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-<div id="global_top_bar">
-	<div id="global_top_nav" class="global_top_nav">
-		<ul class="top_nav_left">
-			<% if flash[:notice] %>
-				<li><span><a href="#"><%= flash[:notice] %></a></span></li>
-			<% else %>
-				<li><span><a href="#">亲，请登录</a></span></li>
-				<li><span><%= link_to "免费注册", register_path %></span></li>
-			<% end %>
-		</ul>
-		
-		<ul class="top_nav_right">
-			<li class="btn-group">
-				<div>
-				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">个人中心</a><i class="icon-chevron-down"></i></span>
-				<ul class="dropdown-menu">
-					<li><a href="#"><i class="icon-star"></i> 我的订单</a></li>
-					<li><a href="#"><i class="icon-tag"></i> 我的优惠</a></li>
-					<li class="divider"></li>
-					<li><a href="#"><i class="icon-tint"></i>退出</a></li>
-				</ul>
-				</div>
-			</li>
-			<li class="btn-group">
-				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">我的收藏夹</a><i class="icon-chevron-down"></i></span>
-				<ul class="dropdown-menu">
-					<li><a href="#"><i class="icon-star"></i>水果</a></li>
-					<li><a href="#"><i class="icon-star"></i>类别</a></li>
-				</ul>
-			</li>
-			<li class="">
-				<span class=""><a href="#">商品分类</a></span>
-			</li>
-			<li class="">
-				<span class=""><a href="#">客户服务</a></span>
-			</li>
-			<li class="btn-group">
-				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">网站导航</a><i class="icon-chevron-down"></i></span>
-				<ul class="dropdown-menu">
-					<li><a href="#"><i class="icon-star"></i> FruitHome</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-</div>
+<%= render :partial=> "shared/global_top_bar" %>
 
 <div id="site_header">
 	<div class="header_wrapper">

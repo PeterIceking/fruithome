@@ -11,147 +11,23 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-<div id="global_top_bar">
-	<div id="global_top_nav" class="global_top_nav">
-		<ul class="top_nav_left">
-			<% if flash[:notice] %>
-				<li><span><a href="#"><%= flash[:notice] %></a></span></li>
-			<% else %>
-				<li><span><a href="#">亲，请登录</a></span></li>
-				<li><span><%= link_to "免费注册", register_path %></span></li>
-			<% end %>
-		</ul>
-		
-		<ul class="top_nav_right">
-			<li class="btn-group">
-				<div>
-				<span class="dropdown-toggle" data-toggle="dropdown"><%= link_to "个人中心", "order/show" %><i class="icon-chevron-down"></i></span>
-				<ul class="dropdown-menu">
-					<li>
-						<%= link_to order_show_path do %>
-							<i class="icon-star"></i>
-							<span>我的订单</span>
-						<% end %>
-					</li>
-					<li><a href="#"><i class="icon-tag"></i> 我的优惠</a></li>
-					<li class="divider"></li>
-					<li><a href="#"><i class="icon-tint"></i>退出</a></li>
-				</ul>
-				</div>
-			</li>
-			<li class="btn-group">
-				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">我的收藏夹</a><i class="icon-chevron-down"></i></span>
-				<ul class="dropdown-menu">
-					<li><a href="#"><i class="icon-star"></i>水果</a></li>
-					<li><a href="#"><i class="icon-star"></i>类别</a></li>
-				</ul>
-			</li>
-			<li class="">
-				<span class=""><a href="#">商品分类</a></span>
-			</li>
-			<li class="">
-				<span class=""><a href="#">客户服务</a></span>
-			</li>
-			<li class="btn-group">
-				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">网站导航</a><i class="icon-chevron-down"></i></span>
-				<ul class="dropdown-menu">
-					<li><a href="#"><i class="icon-star"></i> FruitHome</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-</div>
+<%= render :partial=> "shared/global_top_bar" %>
 
-<div id="site_header">
-	<div class="header_wrapper">
-		<div class="hd_logo fl">
-			<a href="http://localhost:3000/"><%= image_tag("fruit_home_logo.png") %></a>
-		</div>
-		<div class="hd_search fl">
-			<div class="hd_search_form">
-				<input type="text" placeholder="请输入关键词" id="search_word"></input>
-				<input type="submit" value="搜索"></input>
-			</div>
-			<p id="hot_keyword" class="hd_hot_keyword_search">
-				<span>果友都在找：</span>
-				<a href="#">苹果</a>
-				<a href="#">梨子</a>
-				<a href="#">送礼</a>
-				<a href="#">礼包</a>
-				<a href="#">春季</a>
-				<a href="#">特惠</a>
-				<a href="#">学生</a>
-			</p>
-		</div>
-		<div class="hd_banner fl">
-			<div class="cart">
-				<div class="btn-group">
-					<button type="button" class="btn btn-type-nav">
-					<span class="icon32 icon-orange icon-cart"></span>
-					<%= link_to "我的购物车（3件）", cart_show_path, style: "color:white;"  %>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<%= render :partial=> "shared/site_header_for_search_and_type" %>
 
-<div id="hd_nav">
-	<div class="fruit_type">
-		<div class="fruit_type_nav fl">
-			<div class="btn-group">
-				<button type="button" class="btn btn-type-nav">漂亮的首页</button>
-			</div>
-			<% FruitType.where( :super_id => nil ).each do |suptype| %>
-				<div class="btn-group">
-					<button type="button" class="btn btn-type-nav dropdown-toggle" data-toggle="dropdown">
-						<%= suptype.type_name %>
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
-						<% FruitType.where( :super_id => suptype.id ).each do |subtype| %>
-							<li><a href="#"><%= subtype.type_name %></a></li>
-						<% end %>
-					</ul>
-				</div>	
-			<% end %>
-		</div>
+
+<div width="1200px" style="width:1200px;margin:10px auto">
+	<!-- left menu starts -->
+	<%= render :partial=> "shared/left_menue", style:"margin:0;" %>
+	<!-- left menu ends -->
+	<div style="position:relative;padding-top:10px;margin-left:190px;">
+		<%= yield %>
 	</div>
 </div>
 
 
-<!-- left menu starts -->
-<div class="span2 main-menu-span">
-	<div class="well nav-collapse sidebar-nav">
-		<ul class="nav nav-tabs nav-stacked main-menu">
-			<li class="nav-header hidden-tablet">订单中心</li>
-			<li><a class="ajax-link" href="index.html"><span class="hidden-tablet"> 我的订单</span></a></li>
-			<li><a class="ajax-link" href="ui.html"><span class="hidden-tablet"> 我的收藏</span></a></li>
-			<li><a class="ajax-link" href="form.html"><span class="hidden-tablet"> 浏览历史</span></a></li>
-			<li><a class="ajax-link" href="chart.html"><span class="hidden-tablet"> 为我推荐</span></a></li>
-			<li class="nav-header hidden-tablet">账户中心</li>
-			<li><a class="ajax-link" href="table.html"><span class="hidden-tablet"> 账户信息</span></a></li>
-			<li><a class="ajax-link" href="calendar.html"><span class="hidden-tablet"> 账户安全</span></a></li>
-			<li><a class="ajax-link" href="grid.html"><span class="hidden-tablet"> 账户余额</span></a></li>
-			<li><a class="ajax-link" href="file-manager.html"><span class="hidden-tablet"> 收货地址</span></a></li>
-			<li class="nav-header hidden-tablet">客户服务</li>
-			<li><a class="ajax-link" href="table.html"><span class="hidden-tablet"> 退换货</span></a></li>
-			<li><a class="ajax-link" href="calendar.html"><span class="hidden-tablet"> 取消订单记录</span></a></li>
-			<li><a class="ajax-link" href="grid.html"><span class="hidden-tablet"> 我的投诉</span></a></li>
-			<li class="nav-header hidden-tablet">社区中心</li>
-			<li><a class="ajax-link" href="table.html"><span class="hidden-tablet"> 商品评价/晒单</span></a></li>
-			<li><a class="ajax-link" href="calendar.html"><span class="hidden-tablet"> 购买咨询</span></a></li>
-		</ul>
-		<label id="for-is-ajax" class="hidden-tablet" for="is-ajax"><input id="is-ajax" type="checkbox"> Ajax on menu</label>
-	</div><!--/.well -->
-</div><!--/span-->
-<!-- left menu ends -->
-<!--div style="clear:both"-->
 
 
-<div style="position:relative">
-	<%= yield %>
-</div>
 
 
 <% if ENV["RAILS_ENV"] == "development" %>
