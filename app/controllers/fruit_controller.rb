@@ -6,9 +6,13 @@ class FruitController < ApplicationController
   end
 	
 	def search
-		@key_word = params[:key_word]
-		@fruits_search = Fruit.where("name like ? or brief_introduction like ?",
-																	"%#{@key_word}%", "%#{@key_word}%")
+		@key_word, type_names = params[:key_word], []
+		FruitType.all.each {|ft| type_names << ft.name}
+		if type_names.index @key_word
+			@fruits_search = FruitType.find_by_name(@key_word).fruits.paginate(page: params[:page], per_page: 16)
+		else
+			@fruits_search = Fruit.where("name like ? or brief_introduction like ?", "%#{@key_word}%", "%#{@key_word}%").paginate(page: params[:page], per_page: 16)
+		end
 	end
 	
 	def show

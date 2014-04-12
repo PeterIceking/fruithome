@@ -2,20 +2,7 @@
 	<div class="particular_fruit">
 	
 		<!-- 商品归属目录树 -->
-		<div>
-			<div>
-				<ol class="breadcrumb">
-					<li><%= link_to "首页", "/" %></li>
-					<li><a href="#"><%= @fruit.fruit_type.name %></a></li>
-					<li class="active"><%= @fruit.name %></li>
-				</ol>
-				<%= link_to "首页", "/" %>
-				<span>></span>
-				<span><a href="#"><%= @fruit.fruit_type.name %></a></span>
-				<span>></span>
-				<span><%= @fruit.name %></span>
-			</div>
-		</div>
+		<%= render :partial=> "shared/crumb" %>
 	
 		<div class="fruit_info">
 			<div class="fruit_info_wrap">

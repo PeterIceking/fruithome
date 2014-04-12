@@ -1,3 +1,8 @@
+<style type="text/css">
+.self-center ul li a, .website ul li a {
+	padding-left:0px;
+}
+</style>
 <div id="global_top_bar">
 	<div id="global_top_nav" class="global_top_nav">
 		<ul class="top_nav_left">
@@ -12,19 +17,19 @@
 		
 		<ul class="top_nav_right">
 			<li class="btn-group">
-				<div>
-				<span class="dropdown-toggle" data-toggle="dropdown"><%= link_to "个人中心", "order/show" %><i class="icon-chevron-down"></i></span>
-				<ul class="dropdown-menu">
-					<li>
-						<%= link_to order_show_path do %>
-							<i class="icon-star"></i>
-							<span>我的订单</span>
-						<% end %>
-					</li>
-					<li><a href="#"><i class="icon-tag"></i> 我的优惠</a></li>
-					<li class="divider"></li>
-					<li><a href="#"><i class="icon-tint"></i>退出</a></li>
-				</ul>
+				<div class="self-center">
+					<span class="dropdown-toggle" data-toggle="dropdown"><%= link_to "个人中心", "order/show" %><i class="icon-chevron-down"></i></span>
+					<ul class="dropdown-menu">
+						<li>
+							<%= link_to order_show_path do %>
+								<i class="icon-star"></i>
+								<span>我的订单</span>
+							<% end %>
+						</li>
+						<li><a href="#"><i class="icon-tag"></i> 我的优惠</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-tint"></i>退出</a></li>
+					</ul>
 				</div>
 			</li>
 			<li class="btn-group">
@@ -42,10 +47,21 @@
 				<span class=""><a href="#">客户服务</a></span>
 			</li>
 			<li class="btn-group">
-				<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">网站导航</a><i class="icon-chevron-down"></i></span>
-				<ul class="dropdown-menu">
-					<li><a href="#"><i class="icon-star"></i> FruitHome</a></li>
-				</ul>
+				<div class="website">
+					<span class="dropdown-toggle" data-toggle="dropdown"><a href="#">网站导航</a><i class="icon-chevron-down"></i></span>
+					<ul class="dropdown-menu">
+						<li>
+							<%= link_to root_path do %>
+								<i class="icon-star"></i>水果之家
+							<% end %>
+						</li>
+						<li>
+							<%= link_to "http://www.taobao.com" do %>
+								<i class="icon-star"></i>淘宝
+							<% end %>
+						</li>
+					</ul>
+				</div>
 			</li>
 		</ul>
 	</div>

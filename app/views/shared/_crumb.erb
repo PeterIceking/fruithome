@@ -1,0 +1,36 @@
+<style type="text/css">
+.breadcrumb {
+	background: white;
+	border-width: 0px;
+}
+.breadcrumb a {
+	color:black;
+}
+.breadcrumb>li+li:before {
+	content: ">";
+	padding: 0 5px;
+	color: #ccc;
+}
+</style>
+<div>
+	<div>
+		<% if @fruit %>
+		<ol class="breadcrumb">
+			<li><strong><%= link_to "首页", "/" %></strong></li>
+			<li><%= link_to @fruit.fruit_type.name, controller:"fruit", action:"search", key_word:@fruit.fruit_type.name %></li>
+			<li class="active"><%= @fruit.name %></li>
+		</ol>
+		<% elsif @key_word %>
+		<ol class="breadcrumb">
+			<li><strong><%= link_to "首页", "/" %></strong></li>
+			<li><%= @key_word.blank? ? "所有商品" : @key_word %></li>
+		</ol>
+		<% end %>
+		
+		<!--<!--%= link_to "首页", "/" %>
+		<span>></span>
+		<span><a href="#"><!--%= @fruit.fruit_type.name %></a></span>
+		<span>></span>
+		<span><!--%= @fruit.name %></span> -->
+	</div>
+</div>

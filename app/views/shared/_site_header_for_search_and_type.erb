@@ -1,7 +1,7 @@
 <div id="site_header">
 	<div class="header_wrapper">
 		<div class="hd_logo fl">
-			<a href="http://localhost:3000/"><%= image_tag("fruit_home_logo.png") %></a>
+			<a href="http://localhost:3000/"><%= image_tag "fruit_home_logo.png", width:"175px" %></a>
 		</div>
 		<div class="hd_search fl">
 			<div class="hd_search_form">
@@ -12,13 +12,10 @@
 			</div>
 			<p id="hot_keyword" class="hd_hot_keyword_search">
 				<span>果友都在找：</span>
-				<a href="#">苹果</a>
-				<a href="#">梨子</a>
-				<a href="#">送礼</a>
-				<a href="#">礼包</a>
-				<a href="#">春季</a>
-				<a href="#">特惠</a>
-				<a href="#">学生</a>
+				<!-- put the hot word here, 存放热词数组 -->
+				<% ["苹果","梨子","送礼","礼包","春季","特惠","学生"].each do |word| %>
+					<%= link_to word, controller:"fruit", action:"search", key_word:word %>
+				<% end %>
 			</p>
 		</div>
 		<div class="hd_banner fl">
@@ -41,7 +38,9 @@
 	<div class="fruit_type">
 		<div class="fruit_type_nav fl">
 			<div class="btn-group">
-				<button type="button" class="btn btn-type-nav">漂亮的首页</button>
+				<button type="button" class="btn btn-type-nav" onclick="location.href='http://localhost:3000/'">
+					水果之家
+				</button>
 			</div>	
 			<% FruitType.where( :super_id => nil ).each do |suptype| %>
 				<div class="btn-group">
@@ -51,30 +50,36 @@
 					</button>
 					<ul class="dropdown-menu" role="menu">
 						<% FruitType.where( :super_id => suptype.id ).each do |subtype| %>
-							<li><a href="#"><%= subtype.name %></a></li>
+							<li>
+								<%= link_to subtype.name, controller:"fruit", action:"search", key_word:subtype.name %>
+							</li>
 						<% end %>
 					</ul>
 				</div>	
 			<% end %>
 			<div class="btn-group">
 				<button type="button" class="btn btn-type-nav dropdown-toggle" data-toggle="dropdown">
-					<%= "国内" %>
+					国内鲜果
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" role="menu">
 					<% OriginPlace.where( :super_id => 1 ).each do |subtype| %>
-						<li><a href="#"><%= subtype.name %></a></li>
+						<li>
+							<%= link_to subtype.name, controller:"fruit", action:"search", key_word:subtype.name %>
+						</li>
 					<% end %>
 				</ul>
 			</div>	
 			<div class="btn-group">
 				<button type="button" class="btn btn-type-nav dropdown-toggle" data-toggle="dropdown">
-					<%= "进口" %>
+					进口鲜果
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" role="menu">
 					<% OriginPlace.where( :super_id => nil ).where.not(name: "中国大陆").each do |subtype| %>
-						<li><a href="#"><%= subtype.name %></a></li>
+						<li>
+							<%= link_to subtype.name, controller:"fruit", action:"search", key_word:subtype.name %>
+						</li>
 					<% end %>
 				</ul>
 			</div>

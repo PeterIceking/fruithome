@@ -1,11 +1,29 @@
 <div style="width:100%; position:relative; clear:both;">
 	<div style="width:1200px; margin:2px auto; height:auto">
-		<div>
-			<%= link_to "首页", "/" %>
-			<span>></span>
-			<span><%= @search_word %></span>
-		</div>
-		<%= render :partial=> "shared/fruit_search", :collection => @fruits_search %>
+		<!-- 商品归属目录树 -->
+		<%= render :partial=> "shared/crumb" %>
+
+		<!-- 商品搜索结果 -->
+		<% if @fruits_search.blank? %>
+			<%= render partial:"shared/fruit_blank" %>
+		<% else %>
+			<%= render :partial=> "shared/fruit_search", :collection => @fruits_search %>
+		<% end %>
+		<ul class="pagination" style="clear:both;float:right;">
+			<li class=<%= "disabled" unless @fruits_search.previous_page %>>
+					<%= link_to "上页", :page => @fruits_search.previous_page, key_word: @key_word %>
+			</li>
+			<% (1..@fruits_search.total_pages.to_i).each do |i| %>
+				<li class="<%= "active" if i==@fruits_search.current_page %>">
+					<%= link_to i, :page => i, key_word: @key_word %>
+				</li>
+			<% end %>
+			<li class=<%= "disabled" unless @fruits_search.next_page %>>
+				<%= link_to "下页", :page => @fruits_search.next_page, key_word: @key_word %>
+			</li>
+		<li style="padding:9px;">共<%=  @fruits_search.total_pages %>页，第<%=  @fruits_search.current_page %>页</li>
+		</ul>
+
 	</div>
 </div>
 

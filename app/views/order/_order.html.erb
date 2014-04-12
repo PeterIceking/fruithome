@@ -18,7 +18,7 @@
 	</td>
 	<td><%= order.user.username %></td>
 	<td><%= order.total_price %></td>
-	<td><%= order.updated_at %></td>
+	<td style="text-align:center;"><%= order.updated_at.getlocal.to_s[0..19] %></td>
 	<td><%= order.status_text %></td>
 	<td>
 		<a class="btn btn-success" href="#">
