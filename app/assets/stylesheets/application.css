@@ -49,6 +49,7 @@ ul {
 	width:1200px;
 	margin:0 auto;
 	height: 100px;
+	border-bottom:1px solid greenyellow;
 }
 .hd_logo {
 	width:200px;
@@ -78,15 +79,22 @@ ul {
 	width:	100%;
 }
 .fruit_type {
-	width:	1200px;
+	width:1200px;
 	background:	#40AF39;
-	border-radius: 10px;
-	margin:	5px auto;
+	/* border-radius: 10px; */
+	margin:	10px auto;
 	height:	35px;
 }
 .fruit_type_nav {
-	width:	600px;
+	width:	900px;
 	padding: 0 10px;
+}
+.hd_progress {
+	padding:28px 0 0 188px;
+}
+.hd_progress button {
+	width:150px;
+	margin-left:50px;
 }
 #footer {
 	width:100%;
@@ -102,4 +110,14 @@ ul {
 	margin:5px auto;
 	height:auto;
 	text-align:center;
+}
+
+/* ErrorMessages */
+.errors {
+	margin:50px;
+	color:red;
+}
+.errors ul li {
+	display:block;
+	float:none;
 }

@@ -149,7 +149,7 @@ function docReady(){
 	$('textarea.autogrow').autogrow();
 
 	//popover
-	$('[rel="popover"],[data-rel="popover"]').popover();
+	$('[rel="popover"],[data-rel="popover"],[data-toggle="popover"]').popover();
 
 	//file manager
 	var elf = $('.file-manager').elfinder({

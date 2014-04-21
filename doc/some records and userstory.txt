@@ -89,7 +89,7 @@ DRY：Don't Repeat Yourself
 
 ACID：原子性，一致性，独立性，持久性
 
-TDD流程:
+TDD流程:（Test-Driven Development 测试驱动开发）
 	1）写一个测试程序，描述某个功能。
 	2）确保测试出错（因为还没动手开发这个功能，此次应该出错）。
 	3）写一段最短的程序让测试通过。
