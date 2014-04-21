@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 class OrderController < ApplicationController
+	before_filter :login_required
 	layout "self_center"
   def index
 		@orders = Order.where("user_id =? and status != 0", current_user.id)

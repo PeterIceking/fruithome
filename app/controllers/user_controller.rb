@@ -3,6 +3,7 @@ class UserController < ApplicationController
 	include ApplicationHelper
 	before_filter :login_required,  :except => [:register, :login, :logout]
 	layout "self_center", :except => [:register, :login, :logout]
+	layout "empty", only: [:login, :register]
 	def index
 		@page_title = "个人中心"
 	end
@@ -11,7 +12,7 @@ class UserController < ApplicationController
 		@page_title = "欢迎注册"
 		if request.post? and params[:user]
 			@user = User.new(user_params)
-			if @user.save
+			if @user.save && params[:user][:password] == params[:user][:password_confirmation]
 				flash[:notice] = user_params[:username].to_s #"注册成功"
 				redirect_to :action => "index",  :controller=>"fruit"
 			else
@@ -54,7 +55,7 @@ class UserController < ApplicationController
 		
 	private
 	def user_params
-		params.require(:user).permit(:username,:e_mail,:password)
+		params.require(:user).permit(:username,:e_mail,:password,:password_confirmation)
 	end
 
 end

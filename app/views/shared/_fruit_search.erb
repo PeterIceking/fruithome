@@ -1,7 +1,8 @@
 <div class="fl table table-bordered" style="width:240px; height:400px;margin:15px;">
 	<div class="" style="">
-		
+		<%= link_to :action => "show", :id => fruit_search do %>
 			<%= image_tag "fruit_images/#{fruit_search.id}_270_270_1.jpg", :width => "250px", :alt =>"#{fruit_search.name}" %>
+		<% end %>
 	</div>
 	<div style="">
 		<ul style="margin: 0 0 9px 15px;">

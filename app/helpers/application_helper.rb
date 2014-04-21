@@ -19,6 +19,7 @@ module ApplicationHelper
       object.errors.full_messages.each do |error|
         html << "\t\t\t<li>#{error}</li>\n"
       end
+			# html << "\t\t\t<li>两次密码不相等</li>\n" unless params[:user][:password] == params[:user][:password_confirmation]
       html << "\t\t</ul>\n"
       html << "\t</div>\n"
     end
