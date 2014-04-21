@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
 								:e_mail, 
 								:password_text, 
 								:password_digest, 
+								:password_confirmation, 
 								:question,
 								:answer,
 								:phone_number,

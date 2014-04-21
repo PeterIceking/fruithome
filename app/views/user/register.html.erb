@@ -1,19 +1,62 @@
-		<% if flash[:alert] %>
-			<%= flash[:alert] %>
-		<% end %>
-<h2>用户注册</h2>
-<%= form_for(:user) do |f| %>
-	<fieldset>
-		<legend>输入您的注册信息</legend>
-		<label for="username">用户名</label>
-		<%= f.text_field :username %>
-		<br />
-		<label for="email">E-mail</label>
-		<%= f.text_field :e_mail %>
-		<br />
-		<label for="password">登录密码</label>
-		<%= f.password_field :password %>
-		<br />
-		<%= submit_tag "点击注册", :class => "submit" %>
-	</fieldset>
-<% end %>
+<style type="text/css">
+form {
+	 margin: 0 auto;
+	 padding:30px 0;
+	 width: 400px;
+	 font-size: 20px; 
+	 text-align:center;
+}
+form span {
+	width: 100px;
+	display: inline-block;
+	text-align: right;
+}
+form p, form .field_with_errors {
+	display:inline-block;
+}
+form .form-control {
+	width:270px;
+}
+.register-box .btn {
+	width:150px
+}
+.submit {
+	margin-left:47px;
+}
+</style>
+<div style="width:1000px;margin:0 auto" class="register-box">
+	<div style="width:100%;" class="register-box-wrapper">
+		<div style="height:40px;line-height:40px;background:#40AF39;width:100%;margin:20px auto;" class="register-box-title">
+			<h4><a style="font-size:20px;padding:10px;display:inline-block;color:white;text-decoration:none;" href="http://localhost:3000">水果之家FRUITHOME</a></h4>
+		</div>
+		<div style="width:100%;height:450px;" class="register-content">
+			<div style="float:left;width:600px;padding:5px 0 10px 50px;" class="register-left">
+				<h4 style="border-bottom:2px solid #40AF39;height:35px;">会员注册</h4>
+				<% if flash[:alert] %>
+					<%= flash[:alert] %>
+				<% end %>
+				<%= form_for(:user) do |f| %>
+					<fieldset>
+						<p><span for="username">用户名：</span>
+						<%= f.text_field :username %></p>
+
+						<p><span for="email">邮箱：</span>
+						<%= f.text_field :e_mail %></p>
+
+						<p><span for="password">登录密码：</span>
+						<%= f.password_field :password %></p>
+						
+						<p><span for="password">确认密码：</span>
+						<%= f.password_field :password_confirmation %></p>
+
+						<%= submit_tag "点击注册", :class => "submit btn btn-success" %>
+					</fieldset>
+				<% end %>
+			</div>
+			<div style="float:right;width:300px;padding:100px 0;text-align:center;" class="register-right">
+				<p>已经是水果之家会员？</p>
+				<%= link_to "前往登陆", login_path, class:"btn btn-success", style:"width:100px;"%>
+			</div>
+		</div>
+	</div>
+</div>
