@@ -29,6 +29,8 @@ Fruithome::Application.routes.draw do
 	
 	# cart
 	get "cart/show" => "cart#show"
+  post "cart/destroy"
+  post "cart/collect"
 	
 	# admin,fruit_type
   get "admin/fruit_type/new" => "admin/fruit_type#new"

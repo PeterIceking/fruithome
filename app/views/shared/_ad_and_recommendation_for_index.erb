@@ -1,0 +1,75 @@
+<style type="text/css">
+.ctrwrapper {
+	float: center;
+	width: 420px;
+}
+.blk {
+	border-right: #999999 1px solid;
+	padding-right: 0px;
+	border-top: #999999 1px solid;
+	padding-left: 0px;
+	margin-bottom: 6px;
+	padding-bottom: 7px;
+	border-left: #999999 1px solid;
+	padding-top: 7px;
+	border-bottom: #999999 1px solid;
+}
+#NewsPic { border-top-width: 0px; padding-right: 0px; padding-left: 0px; border-left-width: 0px; left: 0px; border-bottom-width: 0px; padding-bottom: 0px; margin: 0px; width: 368px; padding-top: 0px; position: relative; top: 0px; height: 300px; border-right-width: 0px}
+#NewsPicTxt {	border-top-width: 1px; padding-right: 0px; padding-left: 0px; font-weight: bold; border-left-width: 1px; font-size: 12px; border-bottom-width: 1px; padding-bottom: 0px; margin: 3px auto 0px; width: 365px; color: black; padding-top: 0px; font-family: sans-serif; position: relative; height: 0px; text-align: center; border-right-width: 1px}
+#NewsPicTxt A {	COLOR: black; TEXT-DECORATION: none}
+#NewsPicTxt A:hover {	COLOR: black; TEXT-DECORATION: none}
+#NewsPicTxt A:visited {	COLOR: black; TEXT-DECORATION: none}
+#NewPicTxt A:link {	COLOR: black; TEXT-DECORATION: none}
+#NewsPicTxt A:hover {	COLOR: red}
+#NewsPic A {	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; TEXT-DECORATION: none}
+#NewsPic A:hover {	TEXT-DECORATION: none}
+#NewPic A:visited {	TEXT-DECORATION: none}
+#NewsPic .Picture {	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; LEFT: 0px; BORDER-LEFT: #ffffff 1px solid; WIDTH: 100%; BORDER-BOTTOM: #ffffff 1px solid; POSITION: absolute; TOP: 0px; HEIGHT: 100%}
+#NewsPic .Nav {	RIGHT: 0px; WIDTH: 100%; BOTTOM: 0px; POSITION: absolute; HEIGHT: 12px}
+#NewsPic .Nav span {	display: block; background: #000000; float: right; font: 10px courier; border-left: #ffffff 1px solid; width: 25px; cursor: hand; color: #ffffff; height:25px;line-height:25px; text-align: center; border-radius:50%; }
+#NewsPic .Nav span.Cur {	background: #40AF39; color: white}
+#NewsPic .Nav span.Normal {	BACKGROUND: #000000; FILTER: Alpha(opacity=50); COLOR: white; opacity: .5}
+#NewsPic .Nav span A {	DISPLAY: block; WIDTH: 100%; COLOR: white; POSITION: relative; HEIGHT: 100%}
+#NewsPic .Nav span A:hover {	CURSOR: hand}
+#NewsPic img {
+	border-radius:0px;
+}
+.Nav span {
+	border-radius:50%;
+	height:25px;
+	width:25px;
+	line-height:25px;
+	background-color:#40AF39;
+}
+</style>
+
+<!-- show_images -->
+<%= javascript_include_tag "floatPic", "data-turbolinks-track" => true %>
+
+<div id="flashbox" style="position:relative; width:100%">
+	<div class="flash" style="margin:0px auto; width:1200px; height:370px;">
+		<!-- flashbox(首页轮换图) -->
+		<table border="0" cellpadding="0" cellspacing="0" style="text-align:center;">
+			<tr>
+				<td><div class=auto_2_left_1_2 style="margin-top: 0px; width:100%; height:100%">
+					<span id=focuspic>
+						<div id=NewsPic style="width:900px;height:300px;">
+							<!-- <a href="" target=_blank><%= image_tag "show_images/1.jpg" %></a> -->
+							<a href="" target=_blank><%= image_tag "show_images/2.jpg" %></a>
+							<a style="DISPLAY: none" href="" target=_blank><%= image_tag "show_images/3.jpg" %></a>
+							<a style="DISPLAY: none; VISIBILITY: hidden" href="" target=_blank><%= image_tag "show_images/4.jpg" %></a>
+							<a style="DISPLAY: none; VISIBILITY: hidden" href="" target=_blank><%= image_tag "show_images/5.jpg" %></a>
+						</div>
+						<div id=NewsPicTxt style="DISPLAY: none; VISIBILITY: hidden"></div>
+					</span>
+				<script language=javascript>init();</script>
+				</div></td>
+				<td>
+					<image style="width:100px;height:100px;margin-left:10px;display:block;"></image>
+					<image style="width:100px;height:100px;margin-left:10px;display:block;"></image>
+				</td>
+			</tr>
+
+		</table>
+	</div>
+</div>

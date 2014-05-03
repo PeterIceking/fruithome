@@ -17,7 +17,10 @@
 				<span>/</span>
 				<span style=""><%= fruit_search.unit %></span>
 			</li>
-			<li><span style="display:block;"><%= fruit_search.origin_place.name %></span></li>
+			<li>
+				<% op=fruit_search.origin_place %>
+				<span style="display:block;"><%= op ? op.name : "" %></span>
+			</li>
 		</ul>
 	</div>
 </div>

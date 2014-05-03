@@ -75,18 +75,19 @@ ul {
 	width:350px;
 }
 #hd_nav {
+	background:	#40AF39;
 	position:	relative;
 	width:	100%;
 }
 .fruit_type {
 	width:1200px;
 	background:	#40AF39;
-	/* border-radius: 10px; */
-	margin:	10px auto;
-	height:	35px;
+	border-radius: 3px;
+	margin:	10px auto 0px;
+	height:	43px;
 }
 .fruit_type_nav {
-	width:	900px;
+	width:	1100px;
 	padding: 0 10px;
 }
 .hd_progress {

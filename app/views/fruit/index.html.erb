@@ -1,13 +1,10 @@
-<div id="flashbox" style="position:relative; width:100%">
-	<div class="flash" style="margin:2px auto; width:1200px; height:370px; border:1px solid pink;">
-		flashbox(各种广告)
-	</div>
-</div>
+<!-- 首页广告位和推荐栏 -->
+<%= render :partial=> "shared/ad_and_recommendation_for_index" %>
 
 <div style="width:100%; position:relative; clear:both;">
 	<div style="width:1200px; margin:2px auto; height:auto">
 		<div>
-			<span>优惠专区</span>
+			<span class="label label-success" style="font-size:20px;">优惠专区</span>
 		</div>
 		<%= render :partial=> "shared/fruit_search", :collection => @fruits %>
 	</div>
@@ -16,7 +13,7 @@
 <div style="width:100%; position:relative; clear:both;">
 	<div style="width:1200px; margin:2px auto; height:auto">
 		<div>
-			<span>新品推荐</span>
+			<span class="label label-success" style="font-size:20px;">新品推荐</span>
 		</div>
 		<%= render :partial=> "shared/fruit_search", :collection => @fruits %>
 	</div>
@@ -25,7 +22,7 @@
 <div style="width:100%; position:relative; clear:both;">
 	<div style="width:1200px; margin:2px auto; height:auto">
 		<div>
-			<span>果园推荐</span>
+			<span class="label label-success" style="font-size:20px;">果园推荐</span>
 		</div>
 		<%= render :partial=> "shared/fruit_search", :collection => @fruits %>
 	</div>
@@ -34,7 +31,7 @@
 <div style="width:100%; position:relative; clear:both;">
 	<div style="width:1200px; margin:2px auto; height:auto">
 		<div>
-			<span>礼品推荐</span>
+			<span class="label label-success" style="font-size:20px;">礼品推荐</span>
 		</div>
 		<%= render :partial=> "shared/fruit_search", :collection => @fruits %>
 	</div>

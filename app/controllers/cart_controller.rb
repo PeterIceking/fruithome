@@ -7,6 +7,7 @@ class CartController < ApplicationController
   end
 	
 	def show
+		@page_title = "我的购物车"
 		@cart_items = @cart.order_items
 		# @fruit = Fruit.first
 	end
@@ -16,4 +17,24 @@ class CartController < ApplicationController
 	def pay
 		# @fruit = Fruit.first
 	end
+	
+	def destroy
+		if request.post? and params[:id]
+			@item = @cart.order_items.find_by_fruit_id(params[:id])
+			flash[:notice] = "成功删除：#{@item.fruit.name}" #"删除成功"
+			@item.destroy
+			# flash[:alert] = errors_for(@fruit, "抱歉，请检查输入信息：").html_safe
+			redirect_to :action => "show"
+		end
+  end
+	
+	def collect
+		if request.post? and params[:id]
+			@item = @cart.order_items.find_by_fruit_id(params[:id])
+			flash[:notice] = "成功删除：#{@item.fruit.name}" #"删除成功"
+			Collection.find_or_create_by(user_id:current_user.id, fruit_id:@item.fruit_id)
+			# flash[:alert] = errors_for(@fruit, "抱歉，请检查输入信息：").html_safe
+			redirect_to :action => "show"
+		end
+  end
 end

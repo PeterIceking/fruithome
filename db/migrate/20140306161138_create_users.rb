@@ -18,6 +18,7 @@ class CreateUsers < ActiveRecord::Migration
 								:post_code,
 								:advance_payment,
 								:latest_log_date	#上次登录时间
+			t.integer	:status
       t.timestamps
     end
   end

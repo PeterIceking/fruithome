@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= @page_title || "FruitHome"%></title>
+	<!--% if @page_title %--><!--h1><%= @page_title %></h1--><!--% end %-->
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "pic_list", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "pic_zoom_up", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div id="site_header">
+	<div class="header_wrapper">
+		<div class="hd_logo fl">
+			<a href="http://localhost:3000/"><%= image_tag("fruit_home_logo.png") %></a>
+		</div>
+		<div class="hd_progress fl">
+			<button id="button" class="btn btn-default" data-container="body" data-rel="popover" data-placement="left" data-content="查看并确认您选中的商品." data-title="第一步">
+				1.我的购物车
+			</button>
+			<button id="button" class="btn" data-container="body" data-rel="popover" data-placement="bottom" data-content="填写并确认订单所需信息." data-title="第二步">
+				2.填写核对订单信息
+			</button>
+			<button id="button" class="btn" data-container="body" data-rel="popover" data-placement="bottom" data-content="提交订单." data-title="第三步">
+				3.成功提交订单
+			</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--div style="clear:both"-->
+<div style="position:relative">
+	<%= yield %>
+</div>
+
+
+<% if ENV["RAILS_ENV"] == "development" %>
+<div class="alert" style="clear:both; ">
+	<%= debug(params) %>
+</div>
+<% end %>
+
+<div id="footer">
+	<div class="footer_services">
+		<strong>各种服务,运输，支付，信息等等</strong>
+	</div>
+	<div class="footer_links">
+		<p>
+			<%= link_to "关于FruitHome", about_path %>
+			<strong>|</strong>
+			<%= link_to "我们的团队", "#" %>
+			<strong>|</strong>
+			<%= link_to "联系我们", "#" %>
+			<strong>|</strong>
+			<%= link_to "人才招聘", "#" %>
+			<strong>|</strong>
+			<%= link_to "友情链接", "#" %>
+			<strong>|</strong>
+			<%= link_to "广告服务", "#" %>
+		</p>
+	</div>
+	<div class="footer_copyright">
+		<p>Copyright© FruitHome 2014-2014， Not All Rights Reserved</p>
+		</div>
+	<div class="footer_authentication">
+		<%= image_tag("authentication.png", style: "cursor:pointer", alt: "尚未取得的授权", title: "尚未取得的授权") %>
+	</div>
+</div>
+
+<!-- external javascript
+================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+
+
+<!-- jQuery -->
+<%= javascript_include_tag "jquery-1.7.2.min", "data-turbolinks-track" => true %>
+
+<!-- jQuery UI -->
+<%= javascript_include_tag "jquery-ui-1.8.21.custom.min", "data-turbolinks-track" => true %>
+
+<!-- custom dropdown library -->
+<%= javascript_include_tag "bootstrap-dropdown", "data-turbolinks-track" => true %>
+
+<!-- library for creating tabs -->
+<%= javascript_include_tag "bootstrap-tab", "data-turbolinks-track" => true %>
+
+<!-- library for advanced tooltip -->
+<%= javascript_include_tag "bootstrap-tooltip", "data-turbolinks-track" => true %>
+
+<!-- popover effect library -->
+<%= javascript_include_tag "bootstrap-popover", "data-turbolinks-track" => true %>
+
+<!-- library for cookie management -->
+<%= javascript_include_tag "jquery.cookie", "data-turbolinks-track" => true %>
+
+<!-- calander plugin -->
+<!-- <%= javascript_include_tag "fullcalendar.min", "data-turbolinks-track" => true %> -->
+
+<!-- data table plugin -->
+<%= javascript_include_tag "jquery.dataTables.min", "data-turbolinks-track" => true %>
+
+<!-- chart libraries start -->
+<%= javascript_include_tag "excanvas", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery.flot.min", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery.flot.pie.min", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery.flot.stack", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery.flot.resize.min", "data-turbolinks-track" => true %>
+<!-- chart libraries end -->
+
+<!-- select or dropdown enhancer -->
+<%= javascript_include_tag "jquery.chosen.min", "data-turbolinks-track" => true %>
+
+<!-- checkbox, radio, and file input styler -->
+<%= javascript_include_tag "jquery.uniform.min", "data-turbolinks-track" => true %>
+
+<!-- plugin for gallery image view -->
+<!-- <%= javascript_include_tag "jquery.colorbox.min", "data-turbolinks-track" => true %> -->
+
+<!-- rich text editor library -->
+<%= javascript_include_tag "jquery.cleditor.min", "data-turbolinks-track" => true %>
+
+<!-- notification plugin -->
+<!-- <%= javascript_include_tag "jquery.noty", "data-turbolinks-track" => true %> -->
+
+<!-- file manager library -->
+<!-- <%= javascript_include_tag "jquery.elfinder.min", "data-turbolinks-track" => true %> -->
+
+<!-- star rating plugin -->
+<!-- <%= javascript_include_tag "jquery.raty.min", "data-turbolinks-track" => true %> -->
+
+<!-- for iOS style toggle switch -->
+<%= javascript_include_tag "jquery.iphone.toggle", "data-turbolinks-track" => true %>
+
+<!-- autogrowing textarea plugin -->
+<%= javascript_include_tag "jquery.autogrow-textarea", "data-turbolinks-track" => true %>
+
+<!-- multiple file upload plugin -->
+<!-- <%= javascript_include_tag "jquery.uploadify-3.1.min", "data-turbolinks-track" => true %> -->
+
+<!-- history.js for cross-browser state change on ajax -->
+<%= javascript_include_tag "jquery.history", "data-turbolinks-track" => true %>
+
+<!-- application script for Charisma demo -->
+<%= javascript_include_tag "charisma", "data-turbolinks-track" => true %>
+
+
+</body>
+</html>

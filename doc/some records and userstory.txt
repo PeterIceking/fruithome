@@ -16,6 +16,7 @@ where: conditon可以是string，array，hash
 equal: == === eql? equal? 区别待查
 UserStory
 Todo
+检查数据库字段定义
 数据库(okay)
 收藏功能？
 加入购物车

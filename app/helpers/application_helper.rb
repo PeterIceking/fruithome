@@ -17,7 +17,7 @@ module ApplicationHelper
       end  
       html << "\t\t<ul>\n"
       object.errors.full_messages.each do |error|
-        html << "\t\t\t<li>#{error}</li>\n"
+        html << "\t\t\t<li>#{error.split(" ").last}</li>\n"
       end
 			# html << "\t\t\t<li>两次密码不相等</li>\n" unless params[:user][:password] == params[:user][:password_confirmation]
       html << "\t\t</ul>\n"
@@ -37,9 +37,27 @@ module ApplicationHelper
 		}
 		files
 	end
+	
+	# //返回对应id的fruit_intro_images
+	def get_intro_images(id)
+		# dir = 'F:/2012/proj/fruithome/app/assets/images/fruit_images/'
+		dir = Pathname.new('F:/2012/proj/fruithome/app/assets/images/fruit_intro_images/')
+		files = []
+		Dir[File.join(dir, "#{id}_[1-9].jpg")].each { |full_path|
+			path = Pathname.new(full_path).relative_path_from(dir)
+			files << path
+		}
+		files
+	end
+	
 	#//返回对应id的fruit_images的数量
 	def count_images(id)
 		self.get_images(id).length
+	end
+	
+	#//返回对应id的fruit_intro_images的数量
+	def count_intro_images(id)
+		self.get_intro_images(id).length
 	end
 end
 
@@ -47,4 +65,5 @@ class TestApplicationHelper
 	include ApplicationHelper
 end
 test = TestApplicationHelper.new
-print test.count_images 1
+print test.count_intro_images 11
+print test.get_intro_images 11

@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 class Admin::FruitController < ApplicationController
-layout "payment_layout"
+layout "admin_layout"
 include ApplicationHelper
   def new
 		@fruit = Fruit.new

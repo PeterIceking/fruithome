@@ -1,4 +1,8 @@
-
+<style type="text/css">
+.button_to{
+	float:left;
+}
+</style>
 
 <% fruit = cart_item.fruit %>
 <tr>
@@ -26,11 +30,14 @@
 	</td>
 	<td><%= cart_item.quantity %></td>
 	<td>
-		<a class="btn btn-success" href="#">
-			收藏                                            
-		</a>
-		<a class="btn btn-danger" href="#">
-			删除
-		</a>
+		<%= button_to "收藏", { :action=> "collect",
+														:id=> fruit },
+														:confirm => "是否要收藏：#{fruit.name}",
+														class:"btn btn-success",
+														style:"folat:left;margin-right:5px;"	%>
+		<%= button_to "删除", { :action=> "destroy",
+														:id=> fruit },
+														:confirm => "是否要删除：#{fruit.name}",
+														class:"btn btn-danger" %>
 	</td>
 </tr>

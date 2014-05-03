@@ -12,11 +12,12 @@ class UserController < ApplicationController
 		@page_title = "欢迎注册"
 		if request.post? and params[:user]
 			@user = User.new(user_params)
+			@user.status = "1"
 			if @user.save && params[:user][:password] == params[:user][:password_confirmation]
 				flash[:notice] = user_params[:username].to_s #"注册成功"
 				redirect_to :action => "index",  :controller=>"fruit"
 			else
-				flash[:alert] = errors_for(@user, "抱歉，请检查注册信息：").html_safe
+				flash[:alert] = errors_for(@user, "注册失败，请检查：").html_safe
 			end
 		end
 	end
@@ -25,7 +26,11 @@ class UserController < ApplicationController
 		@page_title = "用户登陆"
 		return unless request.post?
 		username = params[:login]
-		user = User.where("username = ? or e_mail =?",username,username).first
+		user = User.where("username = ? or e_mail =?",username,username).first		
+		unless user
+			flash[:alert] = "用户未注册" 
+			return
+		end
 		# self.current_user = user.password_text == params[:password]
 		self.current_user = user.authenticate(params[:password])
 		if current_user
@@ -35,6 +40,8 @@ class UserController < ApplicationController
 			end
 			flash[:notice] = "Logged in successfully".to_s
 			redirect_back_or_default(:controller => '/fruit', :action => 'index')
+		else
+			flash[:alert] = "密码错误"
 		end
 		# flash.now[:notice] = "Incorrect login!" 
 	end
