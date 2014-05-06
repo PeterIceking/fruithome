@@ -28,4 +28,14 @@ class FruitController < ApplicationController
 			render :action => "show"
 		# end
 	end
+	
+	def collect
+		if request.post? and params[:id]
+			@item = @cart.order_items.find_by_fruit_id(params[:id])
+			flash[:notice] = "成功收藏：#{@item.fruit.name}" #"收藏成功"
+			Collection.find_or_create_by(user_id:current_user.id, fruit_id:@item.fruit_id)
+			# flash[:alert] = errors_for(@fruit, "抱歉，请检查输入信息：").html_safe
+			redirect_to request.referer 
+		end
+  end
 end

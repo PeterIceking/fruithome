@@ -23,8 +23,8 @@
 				<li class="active"><%= @fruit.name %></li>
 			<% elsif @key_word %>
 				<li><%= @key_word.blank? ? "所有商品" : @key_word %></li>
+			<% end %>
 		</ol>
-		<% end %>
 		<!--<!--%= link_to "首页", "/" %>
 		<span>></span>
 		<span><a href="#"><!--%= @fruit.fruit_type.name %></a></span>

@@ -5,6 +5,8 @@
 </style>
 
 <% fruit = cart_item.fruit %>
+<% price_p = fruit.price_present.to_f %>
+<% price_h = fruit.price_history.to_f %>
 <tr>
 	<td>
 		<label class="checkbox-inline">
@@ -17,8 +19,8 @@
 		<% end %>
 	</td>
 	<td><%= fruit.unit %></td>
-	<td><%= fruit.price_present %></td>
-	<td><%= fruit.price_history.to_f - fruit.price_present.to_f %></td>
+	<td><%= price_p %></td>
+	<td><!-- <%= price_h > price_p ? price_h - price_p : "" %> --></td>
 	<td>
 		<% if fruit.inventory.to_i > 10 %>
 			<span class="label label-success">货源充足</span>
@@ -30,13 +32,12 @@
 	</td>
 	<td><%= cart_item.quantity %></td>
 	<td>
-		<%= button_to "收藏", { :action=> "collect",
+		<%= button_to "收藏", { :action=> "collect", :controller => "fruit",
 														:id=> fruit },
 														:confirm => "是否要收藏：#{fruit.name}",
 														class:"btn btn-success",
 														style:"folat:left;margin-right:5px;"	%>
-		<%= button_to "删除", { :action=> "destroy",
-														:id=> fruit },
+		<%= button_to "删除", { :action=> "destroy", :controller => "cart", :id=> fruit },
 														:confirm => "是否要删除：#{fruit.name}",
 														class:"btn btn-danger" %>
 	</td>

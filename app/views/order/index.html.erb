@@ -16,7 +16,7 @@
 			<tbody role="alert" aria-live="polite" aria-relevant="all">
 				<%= render :partial=> "order", :collection => @orders %>
 			</tbody>
-			<tfoot>
+			<!-- <tfoot>
 				<tr>
 					<td colspan="6">
 						2件商品 总价：120元
@@ -24,10 +24,10 @@
 										总计：10元
 					</td>
 				</tr>
-			</tfoot>
+			</tfoot> -->
 		</table>
-		<%= link_to "继续购物", root_path, :class => "btn" %>
-		<%= link_to "去结算", order_pay_path, class:"btn btn-danger" %>
+		<%= link_to "去购物", root_path, :class => "btn" %>
+		<!-- <%= link_to "去结算", order_pay_path, class:"btn btn-danger" %> -->
 	</div>
 </div>
 <!-- 	<div class="row-fluid">

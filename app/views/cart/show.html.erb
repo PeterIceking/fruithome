@@ -1,5 +1,5 @@
-<div>
-	<div>我的购物车</div>
+<div style="width:1200px;margin:10px auto;">
+	<div style="font-size:30px;padding-top:7px;border-bottom:1px solid #999999;">我的购物车</div>
 	<div>
 		<table class="table table-striped table-bordered " id="DataTables_Table_0"">
 			<thead>
@@ -13,7 +13,7 @@
 					<th style="width: 135px;">规格</th>
 					<th style="width: 135px;">单价</th>
 					<th style="width: 48px;">优惠</th>
-					<th style="width: 64px;">（地点）库存</th>
+					<th style="width: 64px;">库存</th>
 					<th style="width: 128px;">数量</th>
 					<th style="width: 128px;">Actions</th>
 				</tr>
@@ -22,7 +22,7 @@
 			<tbody role="alert" aria-live="polite" aria-relevant="all">
 				<%= render :partial=> "cart_item", :collection => @cart_items %>
 			</tbody>
-			<tfoot>
+			<!-- <tfoot>
 				<tr>
 					<td colspan="6">
 						2件商品 总价：120元
@@ -30,7 +30,7 @@
 										总计：10元
 					</td>
 				</tr>
-			</tfoot>
+			</tfoot> -->
 		</table>
 		<div style="text-align:center;">
 			<%= link_to "继续购物", root_path, :class => "btn" %>

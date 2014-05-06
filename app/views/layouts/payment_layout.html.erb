@@ -22,7 +22,7 @@
 			<button id="button" class="btn btn-default" data-container="body" data-rel="popover" data-placement="left" data-content="查看并确认您选中的商品." data-title="第一步">
 				1.我的购物车
 			</button>
-			<button id="button" class="btn" data-container="body" data-rel="popover" data-placement="bottom" data-content="填写并确认订单所需信息." data-title="第二步">
+			<button id="button" class="btn <%= "btn-default" if @page_title==("确认订单") %>" data-container="body" data-rel="popover" data-placement="bottom" data-content="填写并确认订单所需信息." data-title="第二步">
 				2.填写核对订单信息
 			</button>
 			<button id="button" class="btn" data-container="body" data-rel="popover" data-placement="bottom" data-content="提交订单." data-title="第三步">
