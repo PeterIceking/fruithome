@@ -1,0 +1,17 @@
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+<table class="table">
+<%= @current_admin_user.username %>
+	<tr>
+		<td>Id</td>
+		<td>水果名称</td>
+		<td>描述</td>
+		<td>类别</td>
+		<td>test_col</td>
+		<td>编辑</td>
+		<td>删除</td>
+	</tr>
+	<%= render :partial=> "fruit", :collection => @fruits %>
+</table>
+<%= link_to "新增", :action => "new" %>

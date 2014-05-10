@@ -1,0 +1,89 @@
+<style type="text/css">
+.label-important {
+	 margin: 0 5px;
+}
+</style>
+<% user_all = User.all.count %>
+<% user_new = User.where("DATE(created_at) = DATE(?)", Time.now).count %>
+
+<% order_all = Order.all.count %>
+<% order_new = Order.where("DATE(created_at) = DATE(?)", Time.now).count %>
+
+<% sales_all = Order.sum(:total_price) %>
+<% sales_new = Order.where("DATE(created_at) = DATE(?)", Time.now).sum(:total_price) %>
+
+<% consultation_all = Consultation.all.count %>
+<% consultation_new = Consultation.where("DATE(created_at) = DATE(?)", Time.now).count %>
+
+<% comment_all = Comment.all.count %>
+<% comment_new = Comment.where("DATE(created_at) = DATE(?)", Time.now).count %>
+
+<div class="sortable row-fluid">
+	<a data-rel="tooltip" title="6 new members." class="well span3 top-block" href="#">
+		<span class="icon32 icon-red icon-user"></span>
+		<div>会员总数</div>
+		<div><%= user_all %></div>
+		<span class="notification"><%= user_new %></span>
+	</a>
+
+	<a data-rel="tooltip" title="4 new pro members." class="well span3 top-block" href="#">
+		<span class="icon32 icon-color icon-star-on"></span>
+		<div>订单总数</div>
+		<div><%= order_all%></div>
+		<span class="notification green"><%= order_new %></span>
+	</a>
+
+	<a data-rel="tooltip" title="$34 new sales." class="well span3 top-block" href="#">
+		<span class="icon32 icon-color icon-cart"></span>
+		<div>销售额</div>
+		<div><%= sales_all %></div>
+		<span class="notification yellow"><%= sales_new %></span>
+	</a>
+	
+	<a data-rel="tooltip" title="12 new messages." class="well span3 top-block" href="#">
+		<span class="icon32 icon-color icon-envelope-closed"></span>
+		<div>留言、评论</div>
+		<div><%= consultation_all + comment_all %></div>
+		<span class="notification red"><%= comment_new + consultation_new %></span>
+	</a>
+</div>
+<div class="row-fluid">
+	<div class="box span12">
+		<div class="box-content">
+			<h3><%= @current_admin_user.username %><small><span id="datetime"></span></small></h3>
+			<p style="text-indent:2em;margin-top:30px;">今天一共有个<span class="label label-important"><%= user_new %></span>新会员，<span class="label label-important"><%= order_new %></span>张新订单，今天的销售额是<span class="label label-important"><%= sales_new %></span>元，有<span class="label label-important"><%= consultation_new %></span>条留言和<span class="label label-important"><%= comment_new %></span>条评论待处理</p>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+function startTime() {
+	var today=new Date()
+	var y=today.getFullYear()
+	var mon=today.getMonth() + 1
+	var d=today.getDate()
+	var w=today.getDay()
+	var h=today.getHours()
+	var m=today.getMinutes()
+	var s=today.getSeconds()
+	// add a zero in front of numbers<10
+	m=checkTime(m)
+	s=checkTime(s)
+	var weekday = {
+		0:"天",
+		1:"一",
+		2:"二",
+		3:"三",
+		4:"四",
+		5:"五",
+		6:"六"
+	}
+	document.getElementById('datetime').innerHTML="今天是"+y+"年"+mon+"月"+d+"日，"+"星期"+weekday[w]+"，现在是"+h+"时"+m+"分"+s+"秒"
+	t=setTimeout('startTime()',1000)
+}
+function checkTime(i) {
+	if (i<10) {i="0" + i}
+	return i
+}
+startTime()
+</script>

@@ -1,9 +1,8 @@
 <tr>
-	<td><%= fruit_type.id %></td>
-	<td><%= link_to fruit_type.type_name, :action=> "show", :id => fruit_type %></td>
-	<td><%= fruit_type.type_description %></td>
-	<td><%= fruit_type.super_type_id %></td>
+	<td><%= link_to fruit_type.name, :action=> "show", :id => fruit_type %></td>
+	<td><%= fruit_type.description %></td>
+	<td><%= FruitType.find(fruit_type.super_id).name if fruit_type.super_id %></td>
 	<td><%= link_to "编辑", :action=> "edit", :id => fruit_type %></td>
 	<td><%= button_to "删除", { :action=> "destroy", :id=> fruit_type },
-															:confirm => "是否要删除水果种类：#{fruit_type.type_name}" %></td>
+															:confirm => "是否要删除水果种类：#{fruit_type.name}" %></td>
 </tr>

@@ -1,12 +1,18 @@
 <% if flash[:alert] %>
 	<%= flash[:alert] %>
 <% end %>
+<table class="table table-striped table-bordered">
+	<tr>
+		<td>水果名称</td>
+		<td><%= text_field "fruit", "name" %></td>
+	</tr>
+	<tr>
+		<td>描述</td>
+		<td><%= text_field "fruit", "brief_introduction" %></td>
+	</tr>
+	<tr>
+		<td>类别</td>
+		<td><%= select "fruit", "fruit_type_id", FruitType.all.collect {|ft| [ ft.name, ft.id ] }, { include_blank: true } %></td>
+	</tr>
+</table>
 
-<label for="fruit_name">水果名称</label>
-<%= text_field "fruit", "name" %>
-
-<label for="descroption">描述</label>
-<%= text_field "fruit", "brief_introduction" %>
-
-<label for="fruit_type_id">类别</label>
-<%= text_field "fruit", "fruit_type_id" %>

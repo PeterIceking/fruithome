@@ -15,6 +15,13 @@ order: 排序
 where: conditon可以是string，array，hash
 equal: == === eql? equal? 区别待查
 UserStory
+
+
+status
+shopping_exp
+member_type
+advance_payment
+<%= text_field "fruit", "fruit_type_id" %>
 Todo
 检查数据库字段定义
 数据库(okay)

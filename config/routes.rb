@@ -10,7 +10,16 @@ Fruithome::Application.routes.draw do
 	get "register" => "user#register"
 	get "user" => "user#index"
 	get "logout" => "user#logout"
-	get "user/information" => "user#information"
+	get "user/information"
+	get "user/security"
+	get "user/change_password"
+	post "user/change_password"
+	get "user/update_mail_address"
+	post "user/update_mail_address"
+	get "user/edit_info" 
+	get "user/edit_security" 
+	post "user/update_info"
+	post "user/update_security"
 	
 	# account
 	
@@ -19,18 +28,21 @@ Fruithome::Application.routes.draw do
   get "search" => "fruit#search"
 	get "show" => "fruit#show"
 	post "add_to_cart" => "fruit#add_to_cart"
+  post "fruit/collect"
 	
 	# order
   get "order/index" => "order#index"
   get "order/show" => "order#show"
 	get "order/pay" => "order#pay"
 	get "order/collection" => "order#collection"
+	get "order/pay_success"
+	get "order/collection"
+	post "order/cancel_collection"
 	# get "order/cart" => "order#cart"
 	
 	# cart
 	get "cart/show" => "cart#show"
   post "cart/destroy"
-  post "cart/collect"
 	
 	# admin,fruit_type
   get "admin/fruit_type/new" => "admin/fruit_type#new"
@@ -40,7 +52,7 @@ Fruithome::Application.routes.draw do
   post "admin/fruit_type/update"
   post "admin/fruit_type/destroy"
   get "admin/fruit_type/show"
-  get "admin/fruit_type/index"
+  get "admin/fruit_type" => "admin/fruit_type#index"
 	
 	# admin,fruit
   get "admin/fruit/new" => "admin/fruit#new"
@@ -50,7 +62,7 @@ Fruithome::Application.routes.draw do
   post "admin/fruit/update"
   post "admin/fruit/destroy"
   get "admin/fruit/show"
-  get "admin/fruit/index"
+  get "admin/fruit" => "admin/fruit#index"
 	
 	# admin,order
 	get "admin/order/new" => "admin/order#new"
@@ -60,6 +72,31 @@ Fruithome::Application.routes.draw do
   post "admin/order/destroy"
   get "admin/order/show"
   get "admin/order/index"
+	
+	# admin,user
+	get "admin/login" => "admin/user#login"
+	post "admin/login" => "admin/user#login"
+	get "admin/logout" => "admin/user#logout"
+	get "admin/user/index"
+	get "admin/user/information"
+	get "admin/user/edit_info"
+	post "admin/user/update_info"
+	get "admin/user/security"
+	get "admin/user/change_password"
+	post "admin/user/change_password"
+	post "admin/user/update_mail_address"
+	get "admin/user/edit_security" 
+	post "admin/user/update_security"
+	
+	# admin,member
+  get "admin/member/new" => "admin/member#new"
+  post "admin/member/create" => "admin/member#create"
+  get "admin/member" => "admin/member#index"
+  get "admin/member/edit"
+  post "admin/member/update"
+  post "admin/member/destroy"
+  get "admin/member/show"
+	
 	# namespace :admin do
 		# # Directs /admin/products/* to Admin::ProductsController
 		# # (app/controllers/admin/products_controller.rb)

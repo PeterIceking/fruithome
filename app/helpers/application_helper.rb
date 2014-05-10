@@ -8,9 +8,9 @@ module ApplicationHelper
       html << "<div class=' errors #{object.class.name.humanize.downcase}_errors'>\n"
       if message.blank?
         if object.new_record?
-          html << "\t\t<h5>There was a problem creating the #{object.class.name.humanize.downcase}</h5>\n"
+          html << "\t\t<h5>在创建#{object.class.name.humanize.downcase}时出错</h5>\n"
         else
-          html << "\t\t<h5>There was a problem updating the #{object.class.name.humanize.downcase}</h5>\n"
+          html << "\t\t<h5>在更新#{object.class.name.humanize.downcase}时出错</h5>\n"
         end    
       else
         html << "<h5>#{message}</h5>"
@@ -61,9 +61,9 @@ module ApplicationHelper
 	end
 end
 
-class TestApplicationHelper
-	include ApplicationHelper
-end
-test = TestApplicationHelper.new
-print test.count_intro_images 11
-print test.get_intro_images 11
+# class TestApplicationHelper
+	# include ApplicationHelper
+# end
+# test = TestApplicationHelper.new
+# print test.count_intro_images 11
+# print test.get_intro_images 11

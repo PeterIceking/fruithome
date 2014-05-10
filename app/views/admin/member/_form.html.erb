@@ -1,0 +1,12 @@
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% end %>
+
+<label for="fruit_name">水果名称</label>
+<%= text_field "fruit", "name" %>
+
+<label for="descroption">描述</label>
+<%= text_field "fruit", "brief_introduction" %>
+
+<label for="fruit_type_id">类别</label>
+<%= text_field "fruit", "fruit_type_id" %>

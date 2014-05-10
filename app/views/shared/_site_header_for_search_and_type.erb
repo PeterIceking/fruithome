@@ -14,7 +14,7 @@
 				<span>果友都在找：</span>
 				<!-- put the hot word here, 存放热词数组 -->
 				<% ["苹果","梨子","送礼","礼包","春季","特惠","学生"].each do |word| %>
-					<%= link_to word, controller:"fruit", action:"search", key_word:word %>
+					<%= link_to word, search_path, key_word:word %>
 				<% end %>
 			</p>
 		</div>

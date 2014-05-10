@@ -8,13 +8,14 @@
 <% price_p = fruit.price_present.to_f %>
 <% price_h = fruit.price_history.to_f %>
 <tr>
-	<td>
+	<!-- <td>
 		<label class="checkbox-inline">
 			<input type="checkbox" id="inlineCheckbox1" value="1">
 		</label>
-	</td>
+	</td> -->
 	<td>
 		<%= link_to controller:"fruit", :action => "show", :id => fruit do %>
+			<%= image_tag "fruit_images/#{get_images(fruit.id).first}", width:"50px", height:"50px", alt:"#{fruit.name}", title:fruit.name %>
 			<strong><%= fruit.name %></strong>
 		<% end %>
 	</td>

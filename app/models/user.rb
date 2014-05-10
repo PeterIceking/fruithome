@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 class User < ActiveRecord::Base
 	has_secure_password validations: false
-	before_create :password_validation
+	# before_create :password_validation
 	
 	has_many	:collections
 	has_many	:consultations
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 	validates :e_mail, 
 						# :presence => {:message => '请输入邮箱'}, 
 						:uniqueness => {:message => '邮箱已注册，请更换'},
-						:format => {:with => /\A([A-Z0-9._%-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}){5,#{e_mail_MAX_LENGTH}}\z/i,
+						:format => {:with => /\A([A-Z0-9._%-]+@([A-Z0-9-]+\.)+[A-Z]{2,4})\z/i,
 												:message => "请输入正确的邮箱！"}
 	# 密请使用大小写字母和数字
 	validates :password,

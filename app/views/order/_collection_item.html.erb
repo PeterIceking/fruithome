@@ -1,0 +1,39 @@
+<style type="text/css">
+.button_to{
+	float:left;
+}
+</style>
+
+<% fruit = collection_item.fruit %>
+<% price_p = fruit.price_present.to_f %>
+<% price_h = fruit.price_history.to_f %>
+<tr>
+	<!-- <td>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox1" value="1">
+		</label>
+	</td> -->
+	<td>
+		<%= link_to controller:"fruit", :action => "show", :id => fruit do %>
+			<%= image_tag "fruit_images/#{get_images(fruit.id).first}", width:"50px", height:"50px", alt:"#{fruit.name}", title:fruit.name %>
+			<strong><%= fruit.name %></strong>
+		<% end %>
+	</td>
+	<td><%= fruit.unit %></td>
+	<td><%= price_p %></td>
+	<td><!-- <%= price_h > price_p ? price_h - price_p : "" %> --></td>
+	<td>
+		<% if fruit.inventory.to_i > 10 %>
+			<span class="label label-success">货源充足</span>
+		<% elsif fruit.inventory.to_i >0 %>
+			<span class="label label-warning">货源紧张</span>
+		<% else %>
+			<span class="label">货源暂无</span>
+		<% end %>
+	</td>
+	<td>
+		<%= button_to "删除", { :action=> "cancel_collection", :controller => "order", :id=> fruit },
+														:confirm => "是否要取消收藏：#{fruit.name}",
+														class:"btn btn-danger" %>
+	</td>
+</tr>

@@ -11,32 +11,175 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-
-
-<div id="site_header">
-	<div class="header_wrapper">
-		<div class="hd_logo fl">
-			<a href="http://localhost:3000/"><%= image_tag("fruit_home_logo.png") %></a>
-		</div>
-		<div class="hd_progress fl">
-			<button id="button" class="btn btn-default" data-container="body" data-rel="popover" data-placement="left" data-content="查看并确认您选中的商品." data-title="第一步">
-				1.我的购物车
-			</button>
-			<button id="button" class="btn" data-container="body" data-rel="popover" data-placement="bottom" data-content="填写并确认订单所需信息." data-title="第二步">
-				2.填写核对订单信息
-			</button>
-			<button id="button" class="btn" data-container="body" data-rel="popover" data-placement="bottom" data-content="提交订单." data-title="第三步">
-				3.成功提交订单
-			</button>
+		<!-- topbar starts -->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html">
+					<!-- <img alt="Charisma Logo" src="img/logo20.png" /> -->
+					<span>FruitHome</span>
+				</a>
+				
+				<!-- theme selector starts -->
+				<!-- <div class="btn-group pull-right theme-container" >
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="icon-tint"></i><span class="hidden-phone"> Change Theme / Skin</span>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" id="themes">
+						<li><a data-value="classic" href="#"><i class="icon-blank"></i> Classic</a></li>
+						<li><a data-value="cerulean" href="#"><i class="icon-blank"></i> Cerulean</a></li>
+						<li><a data-value="cyborg" href="#"><i class="icon-blank"></i> Cyborg</a></li>
+						<li><a data-value="redy" href="#"><i class="icon-blank"></i> Redy</a></li>
+						<li><a data-value="journal" href="#"><i class="icon-blank"></i> Journal</a></li>
+						<li><a data-value="simplex" href="#"><i class="icon-blank"></i> Simplex</a></li>
+						<li><a data-value="slate" href="#"><i class="icon-blank"></i> Slate</a></li>
+						<li><a data-value="spacelab" href="#"><i class="icon-blank"></i> Spacelab</a></li>
+						<li><a data-value="united" href="#"><i class="icon-blank"></i> United</a></li>
+					</ul>
+				</div> -->
+				<!-- theme selector ends -->
+				
+				<!-- user dropdown starts -->
+				<div class="btn-group pull-right" >
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="icon-user"></i><span class="hidden-phone"><%= @current_admin_user.username%></span>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><%= link_to "个人信息", admin_user_information_path %></li>
+						<li class="divider"></li>
+						<li><%= link_to "退出", admin_logout_path %></li>
+					</ul>
+				</div>
+				<!-- user dropdown ends -->
+				
+				<div class="top-nav nav-collapse">
+					<ul class="nav">
+						<li><a href="http://localhost:3000/">浏览商城</a></li>
+						<li>
+							<!-- <form class="navbar-search pull-left">
+								<input placeholder="Search" class="search-query span2" name="query" type="text">
+							</form> -->
+						</li>
+					</ul>
+				</div><!--/.nav-collapse -->
 			</div>
 		</div>
 	</div>
-</div>
+	<!-- topbar ends -->
+	<div class="container-fluid">
+		<div class="row-fluid">
+			
+			<!-- left menu starts -->
+			<style type="text/css">
+			.nav .nav-header {
+				font-size: 20px;
+				line-height: 25px;
+				color: black;
+			}
+			</style>	
+			<div class="span2 main-menu-span" style="margin:0;">
+				<div class="well nav-collapse sidebar-nav">
+					<ul class="nav nav-tabs nav-stacked main-menu">
+						<li class="nav-header hidden-tablet">管理员信息</li>
+						<li><a href="index" id="aaa">首页</a></li>
+						<li><%= link_to "账户信息", admin_user_information_path %></li>
+						<li><%= link_to "修改密码", admin_user_change_password_path %></li>
+						<li class="nav-header hidden-tablet">会员管理</li>
+						<li><%= link_to "查看会员", admin_member_path %></li>
+						<li><a href="2">新增商品</a></li>
+						<li class="nav-header hidden-tablet">商品管理</li>
+						<li><%= link_to "查看商品", admin_fruit_path %></li>
+						<li><%= link_to "新增商品", admin_fruit_new_path %></li>
+						<li><%= link_to "商品类别", admin_fruit_type_path %></li>
+						<li><a href="2">商品产地</a></li>
+						<li class="nav-header hidden-tablet">订单管理</li>
+						<li><a href="2">查看订单</a></li>
+						<li><a href="2">新增商品</a></li>
+						<li class="nav-header hidden-tablet">留言、评论</li>
+						<li><a href="2">查看订单</a></li>
+						<li><a href="2">新增商品</a></li>
+					</ul>
+					<label id="for-is-ajax" class="hidden-tablet" for="is-ajax"><input id="is-ajax" type="checkbox"> Ajax on menu</label>
+				</div><!--/.well -->
+			</div><!--/span-->
+			<!-- left menu ends -->
+			
+			<noscript>
+				<div class="alert alert-block span10">
+					<h4 class="alert-heading">Warning!</h4>
+					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+				</div>
+			</noscript>
+			
+			<div id="content" class="span10">
+			<!-- content starts -->
+			
+			
+			<style type="text/css">
+			.nav .nav-header {
+				font-size: 20px;
+				line-height: 25px;
+				color: black;
+			}
+			</style>	
+			<div>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#" class="func_m">后台管理系统</a>
+						<!-- <a href="#" class="func_m">后台</a> -->
+					</li>
+					<li>
+						<!-- <a href="#" class="func_i">首页</a> -->
+					</li>
+				</ol>
+			</div>
+			
+			<!-- <div style="position:relative"> -->
+				<%= yield %>
+			<!-- </div> -->			
+			
+			
+			<!-- <div class="row-fluid">
+				<div class="box span12">
+					<div class="box-header well">
+						<h2><i class="icon-info-sign"></i> Introduction</h2>
+						<div class="box-icon">
+							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
+							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<h1>Charisma <small>free, premium quality, responsive, multiple skin admin template.</small></h1>
+						<p>Its a live demo of the template. I have created Charisma to ease the repeat work I have to do on my projects. Now I re-use Charisma as a base for my admin panel work and I am sharing it with you :)</p>
+						<p><b>All pages in the menu are functional, take a look at all, please share this with your followers.</b></p>
+						
+						<p class="center">
+							<a href="http://usman.it/free-responsive-admin-template" class="btn btn-large btn-primary"><i class="icon-chevron-left icon-white"></i> Back to article</a> 
+							<a href="http://usman.it/free-responsive-admin-template" class="btn btn-large"><i class="icon-download-alt"></i> Download Page</a>
+						</p>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div> -->
+				  
+			<!--div style="clear:both"-->
 
-<!--div style="clear:both"-->
-<div style="position:relative">
-	<%= yield %>
-</div>
+					<!-- content ends -->
+			</div><!--/#content.span10-->
+		</div><!--/fluid-row-->
+				
+		<hr>
+		
+	</div><!--/.fluid-container-->
+
 
 
 <% if ENV["RAILS_ENV"] == "development" %>
@@ -44,6 +187,16 @@
 	<%= debug(params) %>
 </div>
 <% end %>
+
+
+<script type="text/javascript">
+	$(document).onload(function() {     
+     $(".func_i")[0].innerText = $("li.active a")[0].innerText;
+}); 
+	
+</script>
+
+
 
 <div id="footer">
 	<div class="footer_services">
@@ -147,6 +300,7 @@
 
 <!-- application script for Charisma demo -->
 <%= javascript_include_tag "charisma", "data-turbolinks-track" => true %>
+
 
 
 </body>

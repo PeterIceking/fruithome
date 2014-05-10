@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 			if session[:cart_id]
 				@cart = Order.find(session[:cart_id])
 			else
-				@cart = Order.create(user_id:0, status:0)
+				@cart = Order.new(user_id:0, status:0)
 				session[:cart_id] = @cart.id
 			end
 		end

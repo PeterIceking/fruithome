@@ -1,0 +1,31 @@
+<style type="text/css">
+span small {
+  font-size: 11px;
+  color: #999999;
+}
+.itemset .item {
+	display:inline-block;
+	width:300px;
+	height:28px;
+	line-height:28px;
+}
+.radio input[type="radio"] {
+  float: left;
+  margin-left: 0px;
+}
+.white td {
+	background:none;
+	border-width:0px;
+	text-align:right;
+}
+</style>
+<div style="width:1200px;margin:10px auto;">
+	<div class="table table-bordered" style="height:60px;font-size:20px;line-height:20px;padding:20px;background:#F5F6E7;border:1px solid #EDD28B;border-radius:0px;">
+		<span><strong>订单提交成功，管理员正在为您选购的商品发货，近期请注意快递信息！</strong></span>
+	</div>
+	<div style="text-align:center;">
+		<%= link_to "<<继续购物", root_path, :class => "btn" %>
+		<%= link_to "前往查看", order_index_path, class:"btn btn-success" %>
+		<%= @cart.status %>
+	</div>
+</div>

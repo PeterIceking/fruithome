@@ -5,16 +5,33 @@ module AuthenticatedSystem
     def logged_in?
       (@current_user ||= session[:user] ? User.find_by_id(session[:user]) : :false).is_a?(User)
     end
+		
+    # Returns true or false if the admin user is logged in.
+    # Preloads @current_admin_user with the user model if they're logged in.
+    def admin_logged_in?
+      (@current_admin_user ||= session[:admin_user] ? AdminUser.find_by_id(session[:admin_user]) : :false).is_a?(AdminUser)
+    end
     
     # Accesses the current user from the session.
     def current_user
       @current_user if logged_in?
     end
     
+    # Accesses the current admin user from the session.
+    def current_admin_user
+      @current_admin_user if admin_logged_in?
+    end
+    
     # Store the given user in the session.
     def current_user=(new_user)
       session[:user] = (new_user.blank? || new_user.nil? || new_user.is_a?(Symbol)) ? nil : new_user.id
       @current_user = new_user
+    end
+    
+    # Store the given admin user in the session.
+    def current_admin_user=(new_admin_user)
+      session[:admin_user] = (new_admin_user.blank? || new_admin_user.nil? || new_admin_user.is_a?(Symbol)) ? nil : new_admin_user.id
+			@current_admin_user = new_admin_user
     end
     
     # Check if the user is authorized.
@@ -52,6 +69,12 @@ module AuthenticatedSystem
       self.current_user ||= User.authenticate(username, passwd) || :false if username && passwd
       logged_in? && authorized? ? true : access_denied
     end
+		
+    def admin_login_required
+      username, passwd = get_auth_data
+      self.current_admin_user ||= AdminUser.authenticate(username, passwd) || :false if username && passwd
+      admin_logged_in? && authorized? ? true : access_denied
+    end
     
     # Redirect as appropriate when an access request fails.
     #
@@ -65,7 +88,11 @@ module AuthenticatedSystem
       respond_to do |accepts|
         accepts.html do
           store_location
-          redirect_to :controller => '/user', :action => 'login'
+					if params[:controller].include? "admin"
+						redirect_to :controller => 'admin/user', :action => 'login'
+					else
+						redirect_to :controller => '/user', :action => 'login'
+					end
         end
         accepts.xml do
           headers["Status"]           = "Unauthorized"
