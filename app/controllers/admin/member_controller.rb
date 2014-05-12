@@ -4,36 +4,36 @@ layout "admin_layout"
 include ApplicationHelper
 before_filter :admin_login_required
   def new
-		@fruit = Fruit.new
-		@page_title = "水果管理"
+		@member = User.new
+		@page_title = "会员管理"
   end
 
   def create
-		if request.post? and params[:fruit]
-			@fruit = Fruit.new(fruit_params)
-			if @fruit.save
-				flash[:notice] = fruit_params[:fruit_print].to_s #"添加成功"
-				redirect_to :action => "show", :id => @fruit.id
+		if request.post? and params[:member]
+			@member = User.new(member_params)
+			if @member.save
+				flash[:notice] = member_params[:username].to_s #"添加成功"
+				redirect_to :action => "show", :id => @member.id
 			else
-				flash[:alert] = errors_for(@fruit, "抱歉，请检查输入信息：").html_safe
+				flash[:alert] = errors_for(@member, "抱歉，请检查输入信息：").html_safe
 				render :action => "new"
 			end
 		end
   end
 
   def edit
-		@fruit = Fruit.find(params[:id])
-		@page_title = @fruit.name
+		@member = User.find(params[:id])
+		@page_title = @member.username
   end
 
   def update
-		if request.post? and params[:fruit]
-			@fruit = Fruit.find(params[:id])
-			if @fruit.update_attributes(fruit_params)
-				flash[:notice] = fruit_params[:fruit_print].to_s #"更新成功"
-				redirect_to :action => "show", :id => @fruit.id
+		if request.post? and params[:member]
+			@member = User.find(params[:id])
+			if @member.update_attribute("status",params[:member][:status])
+				flash[:notice] = member_params[:username].to_s #"更新成功"
+				redirect_to :action => "show", :id => @member.id
 			else
-				flash[:alert] = errors_for(@fruit, "抱歉，请检查输入信息：").html_safe
+				flash[:alert] = errors_for(@member, "抱歉，请检查输入信息：").html_safe
 				render :action => "edit"
 			end
 		end
@@ -41,32 +41,33 @@ before_filter :admin_login_required
 
   def destroy
 		if request.post? and params[:id]
-			@fruit = Fruit.find(params[:id])
-			flash[:notice] = "成功删除：#{@fruit.fruit_print}" #"删除成功"
-			@fruit.destroy
-			# flash[:alert] = errors_for(@fruit, "抱歉，请检查输入信息：").html_safe
+			@member = User.find(params[:id])
+			flash[:notice] = "成功删除：#{@member.username}" #"删除成功"
+			@member.destroy
+			# flash[:alert] = errors_for(@member, "抱歉，请检查输入信息：").html_safe
 			redirect_to :action => "index"
 		end
   end
 
   def show
-		@fruit = Fruit.find(params[:id])
-		@page_title = @fruit.fruit_print
+		@member = User.find(params[:id])
+		@page_title = @member.username
   end
 
   def index
-		@fruits = Fruit.all
-		@page_title = "类别"
+		@members = User.all
+		@page_title = "会员管理"
+  end
+
+  def banned
+		@members = User.where(status:0)
+		@page_title = "已屏蔽会员"
   end
 	
 	private
-	def fruit_params
-		params.require(:fruit).permit(:fruit_print, 
-																	:fruit_type_id, 
-																	:description, 
-																	:origin_place, 
-																	:price_present, 
-																	:price_hirtory, 
-																	:price_other)
+	def member_params
+		params.require(:member).permit(	:username, 
+																		:real_name, 
+																		:status)
 	end
 end

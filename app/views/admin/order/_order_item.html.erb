@@ -1,9 +1,14 @@
+<style type="text/css">
+.button_to{
+	float:left;
+}
+</style>
+
 <% fruit = order_item.fruit %>
 <% price_p = fruit.price_present.to_f %>
 <tr>
 	<td>
-		<%= link_to controller:"fruit", action:"show", id:fruit do %>
-			<%= image_tag "fruit_images/#{get_images(fruit.id).first}", width:"50px", height:"50px", alt:fruit.name, title:fruit.name %>
+		<%= link_to controller:"fruit", controller:"fruit", action:"show", :id => fruit do %>
 			<strong><%= fruit.name %></strong>
 		<% end %>
 	</td>

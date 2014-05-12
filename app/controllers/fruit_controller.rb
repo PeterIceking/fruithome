@@ -2,10 +2,17 @@
 class FruitController < ApplicationController
 	include ApplicationHelper
   def index
-		@fruits = Fruit.all.limit(4)
+		@fruits = Fruit.find([10,15,13,23])
+		@fruits_new =  Fruit.order("created_at desc").limit(4)
+		@fruits_gift =  Fruit.where(fruit_type_id:3).limit(4)
+		@fruits_hot =  Fruit.where(is_hot:"t").limit(4)
+		@fruit_special = Fruit.find(11)
   end
 	
 	def search
+		if params[:col] and params[:val]
+			return @fruits_search = search_by_col(params[:col],params[:val])
+		end
 		@key_word, type_names = params[:key_word], []
 		FruitType.all.each {|ft| type_names << ft.name}
 		if type_names.index @key_word
@@ -13,6 +20,11 @@ class FruitController < ApplicationController
 		else
 			@fruits_search = Fruit.where("name like ? or brief_introduction like ?", "%#{@key_word}%", "%#{@key_word}%").paginate(page: params[:page], per_page: 16)
 		end
+	end
+	
+	def search_by_col(col,val)
+		search_hash = {col => val}
+		Fruit.where(search_hash).paginate(page: params[:page], per_page: 16)
 	end
 	
 	def show

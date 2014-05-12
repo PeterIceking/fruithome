@@ -1,0 +1,17 @@
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% end %>
+<table class="table table-striped table-bordered">
+	<tr>
+		<td>产地</td>
+		<td><%= text_field "origin_place", "name" %></td>
+	</tr>
+	<tr>
+		<td>描述</td>
+		<td><%= text_area "origin_place", "description" %></td>
+	</tr>
+	<tr>
+		<td>父类名称</td>
+		<td><%= select "origin_place", "super_id", OriginPlace.where(super_id:["",nil]).collect {|ft| [ ft.name, ft.id ] }, { include_blank: true } %></td>
+	</tr>
+</table>

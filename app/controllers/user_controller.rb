@@ -31,7 +31,11 @@ class UserController < ApplicationController
 		username = params[:login]
 		user = User.where("username = ? or e_mail =?",username,username).first		
 		unless user
-			flash[:alert] = "用户未注册" 
+			flash[:alert] = "用户未注册或被屏蔽" 
+			return
+		end
+		if user.status.eql? 0
+			flash[:alert] = "用户已屏蔽，请联系管理员" 
 			return
 		end
 		# self.current_user = user.password_text == params[:password]

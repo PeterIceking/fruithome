@@ -1,7 +1,7 @@
 <tr>
 	<td><%= link_to fruit.name, :action=> "show", :id => fruit %></td>
 	<td><%= fruit.brief_introduction.to_s[0..20] + "..." %></td>
-	<td><%= fruit.fruit_type_id %></td>
+	<td><%= fruit.fruit_type.name if fruit.fruit_type %></td>
 	<td><%= fruit.inventory %></td>
 	<td><%= link_to "编辑", :action=> "edit", :id => fruit %></td>
 	<td><%= button_to "删除", { :action=> "destroy", :id=> fruit },

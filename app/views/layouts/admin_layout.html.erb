@@ -20,10 +20,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html">
+				<%= link_to admin_user_index_path, class:"brand" do %>
 					<!-- <img alt="Charisma Logo" src="img/logo20.png" /> -->
 					<span>FruitHome</span>
-				</a>
+				<% end %>
 				
 				<!-- theme selector starts -->
 				<!-- <div class="btn-group pull-right theme-container" >
@@ -88,22 +88,21 @@
 				<div class="well nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">管理员信息</li>
-						<li><a href="index" id="aaa">首页</a></li>
+						<li><%= link_to "首页", admin_user_index_path %></li>
 						<li><%= link_to "账户信息", admin_user_information_path %></li>
 						<li><%= link_to "修改密码", admin_user_change_password_path %></li>
 						<li class="nav-header hidden-tablet">会员管理</li>
 						<li><%= link_to "查看会员", admin_member_path %></li>
-						<li><a href="2">新增商品</a></li>
+						<li><%= link_to "已屏蔽会员", admin_member_banned_path %></li>
 						<li class="nav-header hidden-tablet">商品管理</li>
 						<li><%= link_to "查看商品", admin_fruit_path %></li>
 						<li><%= link_to "新增商品", admin_fruit_new_path %></li>
 						<li><%= link_to "商品类别", admin_fruit_type_path %></li>
-						<li><a href="2">商品产地</a></li>
+						<li><%= link_to "商品产地", admin_origin_place_path %></li>
 						<li class="nav-header hidden-tablet">订单管理</li>
-						<li><a href="2">查看订单</a></li>
-						<li><a href="2">新增商品</a></li>
+						<li><%= link_to "订单处理", admin_order_path %></li>
+						<li><%= link_to "历史订单", admin_order_history_path %></li>
 						<li class="nav-header hidden-tablet">留言、评论</li>
-						<li><a href="2">查看订单</a></li>
 						<li><a href="2">新增商品</a></li>
 					</ul>
 					<label id="for-is-ajax" class="hidden-tablet" for="is-ajax"><input id="is-ajax" type="checkbox"> Ajax on menu</label>
@@ -132,7 +131,7 @@
 			<div>
 				<ol class="breadcrumb">
 					<li>
-						<a href="#" class="func_m">后台管理系统</a>
+						<%= link_to "后台管理系统", admin_user_index_path %>
 						<!-- <a href="#" class="func_m">后台</a> -->
 					</li>
 					<li>

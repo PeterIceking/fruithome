@@ -1,0 +1,14 @@
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+<table class="table table-striped table-bordered">
+	<tr>
+		<td>产地</td>
+		<td>描述</td>
+		<td>父类名称</td>
+		<td>编辑</td>
+		<td>删除</td>
+	</tr>
+	<%= render :partial=> "origin_place", :collection => @origin_places %>
+</table>
+<%= link_to "新增", :action => "new" %>

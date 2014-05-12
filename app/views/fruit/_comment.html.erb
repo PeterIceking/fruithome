@@ -1,0 +1,76 @@
+<div class="tab-pane active" id="profile">
+					<!-- 商品评论 -->
+					<div class="comments wrap_detail">
+						<div class="user_score">
+							<h2>用户评价<small style="color:red">（<%= @fruit.comments.count %>）</small></h2>
+							<!-- <div class="score">
+								<div class="total_score">
+										<ul>
+											<li style="width:150px;height:30px;"><span>好评度</span></li>
+											<li style="width:150px;height:30px;"><span style="font-size:40px">93%</span></li>
+											<li style="width:150px;height:30px;">
+												<%= image_tag "star-on.png", :alt => "1" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "2" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "3" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "4" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "5" %>
+											</li>
+										</ul>
+										
+								</div>
+								<div class="percent_score">
+									<ul>
+										<li style="width:400px;height:30px">
+											<span style="float:left;width:100px">好评（93%）</span>
+											<div class="progress" style="width:200px;height:15px;">
+												<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+											</div>
+										</li>
+										<li style="width:400px;height:30px">
+											<span style="float:left;width:100px">中评（3%）</span>
+											<div class="progress" style="width:200px;height:15px;">
+												<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 3%"></div>
+											</div>
+										</li>
+										<li style="width:400px;height:30px">
+											<span style="float:left;width:100px">差评（2%）</span>
+											<div class="progress" style="width:200px;height:15px;">
+												<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 2%"></div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div> -->
+						</div>
+						<div class="detail_comments">
+							<% @fruit.comments.each do |comment| %>
+							<div class="comment">
+								<div class="user">
+									<ul>
+										<li><%= image_tag "fruit_home_user.png", style:"width:70px;border:1px solid greenyellow" %></li>
+										<li><span><%= comment.user.username %></span></li>
+									</ul>
+								</div>
+								<div class="comment_item">
+									<div class="comment_content">
+										<span><%= comment.content %></span>
+									</div>
+									<div class="topic">
+										<ul>
+											<li>
+												<%= image_tag "star-on.png", :alt => "1" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "2" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "3" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "4" %>&nbsp;
+												<%= image_tag "star-on.png", :alt => "5" %>
+											</li>
+											<li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+											<li><span><%= comment.created_at.getlocal.to_s[0..19] %></span></li>
+										</ul>
+									</div>
+								</div>
+							</div>							
+							<% end %>
+						</div>
+					</div>
+				</div>

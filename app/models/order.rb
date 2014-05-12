@@ -18,7 +18,7 @@ class Order < ActiveRecord::Base
 												# :presence => true
 
 	def	status_text
-																					#0:等待付款,购物车状态;
+																					#0:已确认,购物车状态;
 																					#1:已付款，等待发货;
 																					#2:已发货，等待验收;
 																					#3:已签收，交易完成，等待评价;
@@ -27,7 +27,9 @@ class Order < ActiveRecord::Base
 																					#10:已取消交易
 																					#11:退货等;
 		t = case	self.status
-					when 1..3	then	"交易中"
+					when 1	then	"已确认"
+					when 2	then	"已发货"
+					when 3	then	"已签收"
 					when 4..9	then	"已完成"
 					when 10 	then	"已取消"
 					when 11		then	"退货"

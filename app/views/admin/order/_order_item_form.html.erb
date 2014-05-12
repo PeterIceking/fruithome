@@ -1,0 +1,17 @@
+<style type="text/css">
+.button_to{
+	float:left;
+}
+</style>
+
+<% fruit = order_item_form.fruit %>
+<tr>
+	<td>
+			<strong><%= order_item_form.fruit.name %></strong>
+	</td>
+	<td><%= text_field "#{order_item_form.id}", "price", value:order_item_form.price %></td>
+	<td><%= text_field "#{order_item_form.id}", "quantity", value:order_item_form.quantity %></td>
+	<td><%= fruit.unit %></td>
+	<td><%= fruit.inventory.to_i%></td>
+	
+</tr>

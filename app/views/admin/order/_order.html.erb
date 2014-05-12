@@ -1,11 +1,14 @@
 <tr>
-	<td><%= order.id %></td>
-	<td><%= order.user_id %></td>
-	<td><%= order.fruit_id %></td>
-	<td><%= order.fruit_amount %></td>
-	<td><%= link_to order.status, :action=> "show", :id => order %></td>
-	<td><%= order.order_date %></td>
+	<td><%= link_to order.id, :action=> "show", :id => order %></td>
+	<td><%= order.user.username %></td>
+	<td><%= order.consignee_name %></td>
+	<td><%= order.consignee_address %></td>
+	<td><%= order.consignee_phone %></td>
+	<td><%= order.remark %></td>
+	<td><%= order.total_price %></td>
+	<td><%= order.created_at %></td>
+	<td><%= order.status_text %></td>
 	<td><%= link_to "编辑", :action=> "edit", :id => order %></td>
 	<td><%= button_to "删除", { :action=> "destroy", :id=> order },
-															:confirm => "是否要删除水果种类：#{order.user_id}" %></td>
+															:confirm => "是否要取消订单：#{order.id}" %></td>
 </tr>

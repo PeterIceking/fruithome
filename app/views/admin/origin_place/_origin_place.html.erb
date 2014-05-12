@@ -1,0 +1,8 @@
+<tr>
+	<td><%= link_to origin_place.name, :action=> "show", :id => origin_place %></td>
+	<td><%= origin_place.description %></td>
+	<td><%= OriginPlace.find(origin_place.super_id).name if origin_place.super_id %></td>
+	<td><%= link_to "编辑", :action=> "edit", :id => origin_place %></td>
+	<td><%= button_to "删除", { :action=> "destroy", :id=> origin_place },
+															:confirm => "是否要删除水果种类：#{origin_place.name}" %></td>
+</tr>

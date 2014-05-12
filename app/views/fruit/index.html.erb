@@ -1,12 +1,17 @@
 <!-- 首页广告位和推荐栏 -->
 <%= render :partial=> "shared/ad_and_recommendation_for_index" %>
 
+<style type="text/css">
+.label-success a {
+	 color:white;
+}
+</style>
 <div style="width:100%; position:relative; clear:both;">
 	<div style="width:1200px; margin:2px auto; height:auto">
 		<div>
-			<span class="label label-success" style="font-size:20px;">优惠专区</span>
+			<span class="label label-success" style="font-size:20px;"><%= link_to "热卖专区", action:"search", col:"is_hot",val:"t" %></span>
 		</div>
-		<%= render :partial=> "shared/fruit_search", :collection => @fruits %>
+		<%= render :partial=> "shared/fruit_search", :collection => @fruits_hot %>
 	</div>
 </div>
 
@@ -15,7 +20,7 @@
 		<div>
 			<span class="label label-success" style="font-size:20px;">新品推荐</span>
 		</div>
-		<%= render :partial=> "shared/fruit_search", :collection => @fruits %>
+		<%= render :partial=> "shared/fruit_search", :collection => @fruits_new %>
 	</div>
 </div>
 
@@ -33,7 +38,7 @@
 		<div>
 			<span class="label label-success" style="font-size:20px;">礼品推荐</span>
 		</div>
-		<%= render :partial=> "shared/fruit_search", :collection => @fruits %>
+		<%= render :partial=> "shared/fruit_search", :collection => @fruits_gift %>
 	</div>
 </div>
 

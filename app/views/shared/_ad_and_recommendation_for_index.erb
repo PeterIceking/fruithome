@@ -55,18 +55,27 @@
 					<span id=focuspic>
 						<div id=NewsPic style="width:900px;height:300px;">
 							<!-- <a href="" target=_blank><%= image_tag "show_images/1.jpg" %></a> -->
-							<a href="" target=_blank><%= image_tag "show_images/2.jpg" %></a>
-							<a style="DISPLAY: none" href="" target=_blank><%= image_tag "show_images/3.jpg" %></a>
-							<a style="DISPLAY: none; VISIBILITY: hidden" href="" target=_blank><%= image_tag "show_images/4.jpg" %></a>
-							<a style="DISPLAY: none; VISIBILITY: hidden" href="" target=_blank><%= image_tag "show_images/5.jpg" %></a>
+							<a href="http://localhost:3000/show?id=71" target=_blank><%= image_tag "show_images/2.jpg" %></a>
+							<a style="DISPLAY: none" href="http://localhost:3000/show?id=70" target=_blank><%= image_tag "show_images/3.jpg" %></a>
+							<a style="DISPLAY: none; VISIBILITY: hidden" href="http://localhost:3000/show?id=72" target=_blank><%= image_tag "show_images/4.jpg" %></a>
+							<a style="DISPLAY: none; VISIBILITY: hidden" href="http://localhost:3000/show?id=13" target=_blank><%= image_tag "show_images/5.jpg" %></a>
 						</div>
 						<div id=NewsPicTxt style="DISPLAY: none; VISIBILITY: hidden"></div>
 					</span>
 				<script language=javascript>init();</script>
 				</div></td>
-				<td>
-					<image style="width:100px;height:100px;margin-left:10px;display:block;"></image>
-					<image style="width:100px;height:100px;margin-left:10px;display:block;"></image>
+				<td style="width:300px;">
+					<table class="table table-striped table-bordered" style="width:280px;float:right;margin:10px 5px;">
+						<tr><td style="text-align:center;">
+							<span>近日最火</span>
+						</td></tr>
+						<tr><td style="text-align:center;">
+							<%= link_to :action => "show", :id => @fruit_special do %>
+								<%= image_tag "fruit_images/#{@fruit_special.id}_270_270_1.jpg", style:"width:200px;height:200px;margin-left:10px;display:block;" %>
+								<%= @fruit_special.name %>
+							<% end %>
+						</td></tr>
+					</table>
 				</td>
 			</tr>
 

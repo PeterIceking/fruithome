@@ -18,7 +18,8 @@ class CreateUsers < ActiveRecord::Migration
 								:post_code,
 								:advance_payment,
 								:latest_log_date	#上次登录时间
-			t.integer	:status
+			t.integer	:status #0:屏蔽，不能登录;
+												#1:正常;
       t.timestamps
     end
   end

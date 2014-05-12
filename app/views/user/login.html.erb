@@ -30,8 +30,8 @@ form .form-control {
 				<% end %>
 				</div>
 				<%= form_tag %>
-					<p><span for="login">邮箱：</span>
-					<%= text_field_tag 'login', nil, class:"form-control" %></p>
+					<p><span for="login">会员：</span>
+					<%= text_field_tag 'login', nil, class:"form-control", placeholder:"邮箱/用户名" %></p>
 
 					<p><span for="password">密码：</span>
 					<%= password_field_tag 'password', nil, class:"form-control" %></p>

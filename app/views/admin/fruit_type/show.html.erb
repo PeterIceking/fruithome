@@ -1,15 +1,14 @@
-<table>
+<table class="table table-striped table-bordered">
 	<tr>
-		<td>Id</td>
 		<td>类别名称</td>
 		<td>类别描述</td>
-		<td>父类别Id</td>
+		<td>父类</td>
 	</tr>
 	<tr>
-		<td><%= @fruit_type.id %></td>
-		<td><%= @fruit_type.type_name %></td>
-		<td><%= @fruit_type.type_description %></td>
-		<td><%= @fruit_type.super_type_id %></td>
+		<td><%= @fruit_type.name %></td>
+		<td><%= @fruit_type.description %></td>
+		<td><%= FruitType.find(@fruit_type.super_id).name if @fruit_type.super_id %></td>
 	</tr>
 </table>
 <%= link_to "返回", :action => "index" %>
+<%= link_to "编辑", :action=> "edit", :id => @fruit_type %>

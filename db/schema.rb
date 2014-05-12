@@ -11,7 +11,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330164600) do
+ActiveRecord::Schema.define(version: 20140511153800) do
+
+  create_table "_admin_users_old_20140510", force: true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.string   "password_digest"
+    t.string   "admin_type"
+    t.string   "e_mail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "_admin_users_old_20140510_1", force: true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.string   "password_digest"
+    t.string   "admin_type"
+    t.string   "e_mail"
+    t.string   "latest_log_date", limit: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "_comments_old_20140502", force: true do |t|
+    t.integer  "fruit_id"
+    t.integer  "user_id"
+    t.integer  "content"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "_comments_old_20140506", force: true do |t|
+    t.integer  "fruit_id"
+    t.integer  "user_id"
+    t.string   "content",    limit: nil
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "_mail_addresses_old_20140509", force: true do |t|
+    t.integer  "user_id"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "_order_items_old_20140502", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "fruit_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "_orders_old_20140410", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+# Could not dump table "_orders_old_20140410_1" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "_orders_old_20140508" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "_users_old_20140503" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
@@ -24,8 +94,11 @@ ActiveRecord::Schema.define(version: 20140330164600) do
   create_table "admin_users", force: true do |t|
     t.string   "username"
     t.string   "password"
+    t.string   "password_digest"
     t.string   "admin_type"
+    t.string   "phone_number",    limit: nil
     t.string   "e_mail"
+    t.string   "latest_log_date", limit: nil
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,8 +112,9 @@ ActiveRecord::Schema.define(version: 20140330164600) do
 
   create_table "comments", force: true do |t|
     t.integer  "fruit_id"
+    t.integer  "order_id"
     t.integer  "user_id"
-    t.integer  "content"
+    t.string   "content",    limit: nil
     t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -57,6 +131,14 @@ ActiveRecord::Schema.define(version: 20140330164600) do
   end
 
   create_table "fruit_types", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "super_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fruit_types_copy", force: true do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "super_id"
@@ -81,9 +163,44 @@ ActiveRecord::Schema.define(version: 20140330164600) do
     t.datetime "updated_at"
   end
 
+  create_table "fruits_copy", force: true do |t|
+    t.integer  "fruit_type_id"
+    t.integer  "origin_place_id"
+    t.integer  "inventory"
+    t.string   "name"
+    t.string   "introduction"
+    t.string   "brief_introduction"
+    t.string   "unit"
+    t.boolean  "is_hot"
+    t.float    "price_present"
+    t.float    "price_history"
+    t.float    "price_other"
+    t.float    "discount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fruits_copy1", force: true do |t|
+    t.integer  "fruit_type_id"
+    t.integer  "origin_place_id"
+    t.integer  "inventory"
+    t.string   "name"
+    t.string   "introduction"
+    t.string   "brief_introduction"
+    t.string   "unit"
+    t.boolean  "is_hot"
+    t.float    "price_present"
+    t.float    "price_history"
+    t.float    "price_other"
+    t.float    "discount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mail_addresses", force: true do |t|
     t.integer  "user_id"
     t.string   "address"
+    t.string   "post_code",  limit: nil
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,16 +209,21 @@ ActiveRecord::Schema.define(version: 20140330164600) do
     t.integer  "order_id"
     t.integer  "fruit_id"
     t.integer  "quantity"
+    t.float    "price"
+    t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "orders", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "status"
+  create_table "order_statuses", force: true do |t|
+    t.integer  "flag"
+    t.integer  "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+# Could not dump table "orders" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "origin_places", force: true do |t|
     t.string   "name"
@@ -135,24 +257,7 @@ ActiveRecord::Schema.define(version: 20140330164600) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "real_name"
-    t.string   "sex"
-    t.string   "birthdate"
-    t.string   "e_mail"
-    t.string   "password"
-    t.string   "question"
-    t.string   "answer"
-    t.string   "phone_number"
-    t.string   "shopping_exp"
-    t.string   "member_type"
-    t.string   "city"
-    t.string   "post_code"
-    t.string   "advance_payment"
-    t.string   "latest_log_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "users" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end

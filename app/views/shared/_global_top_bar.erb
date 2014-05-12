@@ -32,14 +32,19 @@
 								<span>我的账户</span>
 							<% end %>
 						</li>
-						<li><a href="#"><i class="icon-tag"></i> 我的优惠</a></li>
+						<!-- <li><a href="#"><i class="icon-tag"></i> 我的优惠</a></li> -->
 						<li class="divider"></li>
-						<li><a href="#"><i class="icon-tint"></i>退出</a></li>
+						<li>
+							<%= link_to logout_path do %>
+								<i class="icon-tint"></i>
+								<span>退出</span>
+							<% end %>
+						</li>
 					</ul>
 				</div>
 			</li>
 			<li class="btn-group">
-				<span class=""><a href="#">我的收藏夹</a></span>
+				<span class=""><%= link_to "我的收藏夹", order_collection_path %></span>
 				<!-- <span class="dropdown-toggle" data-toggle="dropdown"><a href="#">我的收藏夹</a><i class="icon-chevron-down"></i></span>
 				<ul class="dropdown-menu">
 					<li><a href="#"><i class="icon-star"></i>水果</a></li>
@@ -47,10 +52,10 @@
 				</ul> -->
 			</li>
 			<li class="">
-				<span class=""><a href="#">商品分类</a></span>
+				<span class=""><a href="http://localhost:3000/search">所有商品</a></span>
 			</li>
 			<li class="">
-				<span class=""><a href="#">客户服务</a></span>
+				<span class=""><a href="http://localhost:3000/user/information">客户中心</a></span>
 			</li>
 			<li class="btn-group">
 				<div class="website">
@@ -64,6 +69,11 @@
 						<li>
 							<%= link_to "http://www.taobao.com" do %>
 								<i class="icon-star"></i>淘宝
+							<% end %>
+						</li>
+						<li>
+							<%= link_to admin_user_index_path do %>
+								<i class="icon-user"></i>我是管理员
 							<% end %>
 						</li>
 					</ul>

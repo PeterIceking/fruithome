@@ -1,0 +1,11 @@
+<tr>
+	<td><%= link_to member.username, :action=> "show", :id => member %></td>
+	<td><%= member.real_name %></td>
+	<td><%= member.e_mail %></td>
+	<td><%= member.phone_number %></td>
+	<td><%= member.city %></td>
+	<td><%= member.status %></td>
+	<td><%= link_to "编辑", :action=> "edit", :id => member %></td>
+	<td><%= button_to "删除", { :action=> "destroy", :id=> member },
+															:confirm => "是否要取消用户：#{member.username}" %></td>
+</tr>

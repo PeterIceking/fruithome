@@ -1,0 +1,67 @@
+<table class="table table-striped table-bordered">
+	<tr>
+		<td>订单Id</td>
+		<td><%= @order.id%></td>
+	</tr>
+	<tr>
+		<td>用户</td>
+		<td><%= @order.user.username%></td>
+	</tr>
+	<tr>
+		<td>收货人</td>
+		<td><%= @order.consignee_name %></td>
+	</tr>
+	<tr>
+		<td>收货地址</td>
+		<td><%= @order.consignee_address %></td>
+	</tr>
+	<tr>
+		<td>联系方式</td>
+		<td><%= @order.consignee_phone %></td>
+	</tr>
+	<tr>
+		<td>备注</td>
+		<td><%= @order.remark %></td>
+	</tr>
+	<tr>
+		<td>订单金额</td>
+		<td><%= @order.total_price %></td>
+	</tr>
+	<tr>
+		<td>订单日期</td>
+		<td><%= @order.created_at.to_s[0..19] %></td>
+	</tr>
+	<tr>
+		<td>订单状态</td>
+		<td><%= @order.status_text %></td>
+	</tr>
+</table>
+<div style="width:100%">
+	<div style="text-align:center;">
+		<% if @order.status < 9 %>
+			<%= button_to "确认收货", {:action=> "order_done", :id=> @order}, :confirm => "请确认已收货！" %>
+		<% end %>
+	</div>
+	<div style="text-align:center;">
+		<% if @order.status < 4 %>
+			<%= link_to "取消订单", {action:"destroy", id:@order}, confirm:"是否要取消订单？" %>
+		<% end %>
+	</div>
+</div>
+<script type="text/javascript">
+	$(".button_to input:first").addClass("btn btn-success")
+</script>
+<div class="label label-success order-item">订单明细</div>
+<table class="table table-striped table-bordered">
+	<tr>
+		<th>商品</th>
+		<th>单价</th>
+		<th>数量</th>
+		<th>规格</th>
+		<th>库存</th>
+	</tr>
+
+	<%= render :partial=> "order_item", :collection => @order.order_items %>
+
+	</table>
+<%= link_to "返回", :action => "index" %>

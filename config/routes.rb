@@ -33,6 +33,8 @@ Fruithome::Application.routes.draw do
 	# order
   get "order/index" => "order#index"
   get "order/show" => "order#show"
+  get "order/destroy"
+  post "order/order_done"
 	get "order/pay" => "order#pay"
 	get "order/collection" => "order#collection"
 	get "order/pay_success"
@@ -54,6 +56,16 @@ Fruithome::Application.routes.draw do
   get "admin/fruit_type/show"
   get "admin/fruit_type" => "admin/fruit_type#index"
 	
+	# admin,origin_place
+  get "admin/origin_place/new" => "admin/origin_place#new"
+  # get "admin/origin_place/create" => "admin/origin_place#create"
+  post "admin/origin_place/create" => "admin/origin_place#create"
+  get "admin/origin_place/edit"
+  post "admin/origin_place/update"
+  post "admin/origin_place/destroy"
+  get "admin/origin_place/show"
+  get "admin/origin_place" => "admin/origin_place#index"
+	
 	# admin,fruit
   get "admin/fruit/new" => "admin/fruit#new"
   # get "admin/fruit/create" => "admin/fruit#create"
@@ -71,7 +83,8 @@ Fruithome::Application.routes.draw do
   post "admin/order/update"
   post "admin/order/destroy"
   get "admin/order/show"
-  get "admin/order/index"
+  get "admin/order/history"
+  get "admin/order" => "admin/order#index"
 	
 	# admin,user
 	get "admin/login" => "admin/user#login"
@@ -92,6 +105,7 @@ Fruithome::Application.routes.draw do
   get "admin/member/new" => "admin/member#new"
   post "admin/member/create" => "admin/member#create"
   get "admin/member" => "admin/member#index"
+  get "admin/member/banned"
   get "admin/member/edit"
   post "admin/member/update"
   post "admin/member/destroy"

@@ -9,10 +9,20 @@ class OrderController < ApplicationController
   end
 	
 	def show
-		# @fruit = Fruit.first
+		@order = Order.find(params[:id])
 	end
 	def cart
 		 # @fruit = Order.first
+	end
+	def destroy
+		 if Order.find(params[:id]).update(status:"10")
+			redirect_to action:"index"
+		 end
+	end
+	def order_done
+		 if Order.find(params[:id]).update(status:"9")
+			redirect_to action:"index"
+		 end
 	end
 	def pay
 		@page_title = "确认订单"
