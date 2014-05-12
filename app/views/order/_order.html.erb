@@ -28,11 +28,12 @@
 		<% if order.status < 9 %>
 			<%= button_to "确认收货", {:action=> "order_done", :id=> order}, :confirm => "请确认已收货！" %>
 		<% end %>
+		
+<script type="text/javascript">
+	$(".button_to input").addClass("btn btn-success")
+</script>
 		<% if order.status < 4 %>
 			<%= link_to "取消订单", {action:"destroy", id:order}, confirm:"是否要取消订单？" %>
 		<% end %>
 	</td>
 </tr>
-<script type="text/javascript">
-	$(".button_to input:first").addClass("btn btn-success")
-</script>

@@ -32,7 +32,8 @@ span small {
 			</thead>   
 			<tbody role="alert" aria-live="polite" aria-relevant="all">
 				<tr>
-					<td><%= @current_user.mail_addresses.first.address %></td>
+					<td><%= @current_user.mail_addresses.first.address %>
+					<span style="text-indent:2em;"><strong>邮政编码：</strong><%= @current_user.mail_addresses.first.post_code %></span></td>
 				</tr>
 			</tbody>
 		</table>

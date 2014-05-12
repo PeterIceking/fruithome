@@ -37,6 +37,14 @@ class OrderController < ApplicationController
 		@cart.consignee_name = @current_user.username
 		@cart.consignee_address = @current_user.mail_addresses.first.address
 		@cart.consignee_phone = @current_user.phone_number
+		sum = 0
+		@order_items.each do |ci|
+			ci.fruit.inventory -= ci.quantity
+			ci.price = ci.fruit.price_present
+			sum = ci.fruit.price_present * ci.quantity
+			ci.save
+		end
+		@cart.total_price = sum + 10
 		@cart.save
 		render action:"pay_success", :layout => "payment_layout"
 	end

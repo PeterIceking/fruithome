@@ -24,7 +24,7 @@ before_filter :admin_login_required
   def edit
 		@order = Order.find(params[:id])
 		@order_items = @order.order_items
-		@page_title = @order.user_id
+		@page_title = @order.id
   end
 
   def update
